@@ -1,0 +1,75 @@
+/*background-color: blue;    /* Color de fondo */
+/*color: white;              /* Color del texto */
+/*border: 1px solid black;   /* Borde */
+/*font-size: 14px;           /* Tamaño de fuente */
+/*font-weight: bold;         /* Peso de la fuente */
+/*text-align: center;        /* Alineación del texto */
+/*vertical-align: middle;    /* Alineación vertical */
+/*padding: 10px;             /* Espacio interno */
+/*margin: 5px;               /* Espacio externo */
+
+.celda-tacopan {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 15px; /* Tamaño de fuente */
+  /*font-weight: bold;         /* Peso de la fuente */
+  text-align: right; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+table {
+  border-collapse: separate;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+thead th {
+  border: 1px solid #000000;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+}
+
+tbody td,
+tbody th {
+  border: 1px solid #000000;
+  font-size: 18px;
+  padding: 2px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+button {
+  background-color: #6bca12; /* Cambia el color de fondo */
+  color: white; /* Cambia el color del texto */
+  padding: 10px 20px; /* Aumenta el espacio alrededor del texto */
+  border: 1px solid #000; /* Elimina el borde */
+  border-radius: 5px; /* Agrega bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Agrega una transición */
+}
+
+button:hover {
+  background-color: #3e8e41; /* Cambia el color de fondo al pasar el ratón por encima */
+}
+
+input[type="text"] {
+  width: 100%; /* Ajusta el ancho al contenedor padre */
+  padding: 12px 20px; /* Aumenta el espacio alrededor del texto */
+  margin: 8px 0; /* Agrega un margen alrededor del campo de entrada */
+  box-sizing: border-box; /* Ajusta el tamaño del campo de entrada para incluir el borde y el relleno */
+  border: 2px solid #ccc; /* Agrega un borde */
+  border-radius: 4px; /* Agrega bordes redondeados */
+}
+
+input[type="text"]:focus {
+  border-color: #4caf50; /* Cambia el color del borde al enfocar el campo de entrada */
+  outline: none; /* Elimina el contorno predeterminado */
+}
