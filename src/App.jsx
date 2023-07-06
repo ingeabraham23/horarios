@@ -15,12 +15,12 @@ function App() {
   const [fechaSeleccionada, setFechaSeleccionada] = useState(fechaActual); // Estado para la fecha seleccionada en el DatePicker, se inicializa con la fecha en que se esta ejecutando la aplicación
 
   const [grupos, setGrupos] = useState([
-    { nombre: 'Humberto', numeros: [7, 8, 34, 42, 23] },
+    { nombre: 'Humberto', numeros: [7, 8, 34, 37, 42, 23] },
     { nombre: 'Marce', numeros: [6, 14, 22, 29, 41] },
     { nombre: 'Paco', numeros: [5, 13, 21, 33, 39, 40] },
     { nombre: 'Heriberto', numeros: [4, 12, 20, 31] },
     { nombre: 'Lobo', numeros: [11, 19, 28, 38, 3] },
-    { nombre: 'David', numeros: [10, 18, 27, 37, 47] },
+    { nombre: 'David', numeros: [10, 18, 27, 47] },
     { nombre: 'Eloy', numeros: [1, 9, 25, 36, 46, 17] },
     { nombre: 'Hector', numeros: [16, 24, 35, 43] },
   ]);// Estado para los grupos de Unidades
