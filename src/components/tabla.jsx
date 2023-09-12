@@ -110,7 +110,7 @@ function Tabla({ grupos, fecha }) {
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td></td>
                     <td colSpan={2} className="celda-tacopan">
-                      Descansa:{" "}
+                      Coahuixco:{" "}
                     </td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[4]}
