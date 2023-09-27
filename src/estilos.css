@@ -11,9 +11,21 @@
 .celda-tacopan {
   color: rgb(0, 0, 0); /* Color del texto */
   border: 1px solid rgb(0, 0, 0); /* Borde */
-  font-size: 15px; /* Tamaño de fuente */
+  font-size: 14px; /* Tamaño de fuente */
   /*font-weight: bold;         /* Peso de la fuente */
   text-align: right; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+.celda-pie {
+  color: rgb(255, 255, 255); /* Color del texto */
+  background-color: #808080;
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 10px; /* Tamaño de fuente */
+  /*font-weight: bold;         /* Peso de la fuente */
+  text-align: left; /* Alineación del texto */
   vertical-align: middle; /* Alineación vertical */
   padding: 4px; /* Espacio interno */
   margin: 3px; /* Espacio externo */
@@ -28,18 +40,19 @@ table {
 
 thead th {
   border: 1px solid #000000;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
-  padding: 8px;
+  padding: 3px;
 }
 
 tbody td,
 tbody th {
   border: 1px solid #000000;
-  font-size: 18px;
-  padding: 2px;
+  font-size: 16px;
+  padding: 1px;
   text-align: center;
+  margin: 0 auto;
 }
 
 tbody tr:nth-child(even) {
