@@ -86,3 +86,55 @@ input[type="text"]:focus {
   border-color: #4caf50; /* Cambia el color del borde al enfocar el campo de entrada */
   outline: none; /* Elimina el contorno predeterminado */
 }
+
+.boton-guardar {
+  background-color: #6bca12; /* Cambia el color de fondo */
+  color: white; /* Cambia el color del texto */
+  padding: 5px 10px; /* Aumenta el espacio alrededor del texto */
+  border: 1px solid #000; /* Elimina el borde */
+  border-radius: 5px; /* Agrega bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Agrega una transición */
+}
+
+.boton-cancelar {
+  background-color: #ff0000; /* Cambia el color de fondo */
+  color: white; /* Cambia el color del texto */
+  padding: 5px 10px; /* Aumenta el espacio alrededor del texto */
+  border: 1px solid #000; /* Elimina el borde */
+  border-radius: 5px; /* Agrega bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Agrega una transición */
+  margin-top: 20px;
+}
+
+.boton-editar {
+  background-color: #1d64ff; /* Cambia el color de fondo */
+  color: white; /* Cambia el color del texto */
+  padding: 5px 10px; /* Aumenta el espacio alrededor del texto */
+  border: 1px solid #000; /* Elimina el borde */
+  border-radius: 5px; /* Agrega bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Agrega una transición */
+}
+
+.boton-capturar {
+  width: 300px;
+  height: 40px;
+  background-color: #f8d300; /* Cambia el color de fondo */
+  color: white; /* Cambia el color del texto */
+  padding: 5px 10px; /* Aumenta el espacio alrededor del texto */
+  border: 1px solid #000; /* Elimina el borde */
+  border-radius: 5px; /* Agrega bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Agrega una transición */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.contenedor-boton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

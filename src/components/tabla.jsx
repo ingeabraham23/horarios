@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useRef } from "react";
 import html2canvas from "html2canvas";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCameraAlt, faCameraRetro } from "@fortawesome/free-solid-svg-icons";
 
 function Tabla({ grupos, fecha }) {
   const opciones = {
@@ -74,9 +76,7 @@ function Tabla({ grupos, fecha }) {
                 <React.Fragment key={index}>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:15, 8:15, 9:15
-                    </td>
+                    <td className="celda-tacopan">7:15, 8:15, 9:15</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[0] === 0
                         ? " "
@@ -86,9 +86,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      6:30, 7:30, 8:30
-                    </td>
+                    <td className="celda-tacopan">6:30, 7:30, 8:30</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[1] === 0
                         ? " "
@@ -98,9 +96,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td  className="celda-tacopan">
-                      6:45, 7:45, 8:45
-                    </td>
+                    <td className="celda-tacopan">6:45, 7:45, 8:45</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[2] === 0
                         ? " "
@@ -110,9 +106,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:00, 8:00, 9:00
-                    </td>
+                    <td className="celda-tacopan">7:00, 8:00, 9:00</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[3] === 0
                         ? " "
@@ -125,7 +119,9 @@ function Tabla({ grupos, fecha }) {
                       Descansa y se va a: Coahuixco.{" "}
                     </td>
                     <td className="celda-tacopan">
-                      {grupos[index].numeros[4]}
+                      {grupos[index].numeros[4] === 0
+                        ? " "
+                        : grupos[index].numeros[4]}
                     </td>
                     <td></td>
                   </tr>
@@ -134,7 +130,9 @@ function Tabla({ grupos, fecha }) {
                       Descansa y se va a: Coahuixco.{" "}
                     </td>
                     <td className="celda-tacopan">
-                      {grupos[index].numeros[5]}
+                      {grupos[index].numeros[5] === 0
+                        ? " "
+                        : grupos[index].numeros[5]}
                     </td>
                     <td></td>
                   </tr>
@@ -145,9 +143,7 @@ function Tabla({ grupos, fecha }) {
                 <React.Fragment key={index}>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:05
-                    </td>
+                    <td className="celda-tacopan">7:05</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[0] === 0
                         ? " "
@@ -157,9 +153,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:15
-                    </td>
+                    <td className="celda-tacopan">7:15</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[1] === 0
                         ? " "
@@ -169,9 +163,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:25
-                    </td>
+                    <td className="celda-tacopan">7:25</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[2] === 0
                         ? " "
@@ -181,9 +173,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:35
-                    </td>
+                    <td className="celda-tacopan">7:35</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[3] === 0
                         ? " "
@@ -196,7 +186,9 @@ function Tabla({ grupos, fecha }) {
                       Descansa y se va a: Coahuixco.{" "}
                     </td>
                     <td className="celda-tacopan">
-                      {grupos[index].numeros[4]}
+                      {grupos[index].numeros[4] === 0
+                        ? " "
+                        : grupos[index].numeros[4]}
                     </td>
                     <td></td>
                   </tr>
@@ -205,7 +197,9 @@ function Tabla({ grupos, fecha }) {
                       Descansa y se va a: Coahuixco.{" "}
                     </td>
                     <td className="celda-tacopan">
-                      {grupos[index].numeros[5]}
+                      {grupos[index].numeros[5] === 0
+                        ? " "
+                        : grupos[index].numeros[5]}
                     </td>
                     <td></td>
                   </tr>
@@ -214,9 +208,9 @@ function Tabla({ grupos, fecha }) {
             } else {
               return (
                 <tr key={index} style={{ backgroundColor: coloresFila[index] }}>
-                  <td style={{ width: '25%' }} >{rutas[index]}</td>
+                  <td style={{ width: "25%" }}>{rutas[index]}</td>
                   <td colSpan={2}>{grupo.numeros.join(", ")}</td>
-                  <td style={{ width: '23%' }}>{grupo.nombre}</td>
+                  <td style={{ width: "23%" }}>{grupo.nombre}</td>
                 </tr>
               );
             }
@@ -226,24 +220,32 @@ function Tabla({ grupos, fecha }) {
           <tr>
             <td className="celda-pie" colSpan={4}>
               El operador que no cumpla con su horario de San Miguel sera
-              acredor a 5 días de castigo. Se recomienda mandar evidencia a algun grupo o tener la evidencia en caso de que se le acuse de no haber cumplido con su horario y ruta.
+              acredor a 5 días de castigo. Se recomienda mandar evidencia a
+              algun grupo o tener la evidencia en caso de que se le acuse de no
+              haber cumplido con su horario y ruta.
             </td>
-            
           </tr>
           <tr>
-          <td className="celda-pie" colSpan={4}>
+            <td className="celda-pie" colSpan={4}>
               El operador que se meta a una ruta diferente a la asignada sera
               acredor a un castigo.
             </td>
           </tr>
           <tr>
-          <td className="celda-pie" colSpan={4}>
-              Si no tienes tu nota por perdida, por que no trabajaste o por (x) motivo, mandame un Whatsapp y con gusto te envio la ruta asignada que tiene la unidad que vas a operar.
+            <td className="celda-pie" colSpan={4}>
+              Si no tienes tu nota por perdida, por que no trabajaste o por (x)
+              motivo, mandame un Whatsapp y con gusto te envio la ruta asignada
+              que tiene la unidad que vas a operar.
             </td>
           </tr>
         </tfoot>
       </table>
-      <button onClick={capturarTabla}>Capturar tabla</button>
+      <div className="contenedor-boton">
+        <button onClick={capturarTabla} className="boton-capturar">
+          Capturar tabla
+          <FontAwesomeIcon icon={faCameraRetro}></FontAwesomeIcon>
+        </button>
+      </div>
       {/* Tabla tacopan y san miguel*/}
       <table align="center" ref={tacopanRef}>
         <thead>
@@ -260,9 +262,7 @@ function Tabla({ grupos, fecha }) {
                 <React.Fragment key={index}>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:15, 8:15, 9:15
-                    </td>
+                    <td className="celda-tacopan">7:15, 8:15, 9:15</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[0] === 0
                         ? " "
@@ -272,9 +272,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      6:30, 7:30, 8:30
-                    </td>
+                    <td className="celda-tacopan">6:30, 7:30, 8:30</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[1] === 0
                         ? " "
@@ -284,9 +282,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td  className="celda-tacopan">
-                      6:45, 7:45, 8:45
-                    </td>
+                    <td className="celda-tacopan">6:45, 7:45, 8:45</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[2] === 0
                         ? " "
@@ -296,9 +292,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:00, 8:00, 9:00
-                    </td>
+                    <td className="celda-tacopan">7:00, 8:00, 9:00</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[3] === 0
                         ? " "
@@ -311,7 +305,9 @@ function Tabla({ grupos, fecha }) {
                       Descansa y se va a: Coahuixco.{" "}
                     </td>
                     <td className="celda-tacopan">
-                      {grupos[index].numeros[4]}
+                      {grupos[index].numeros[4] === 0
+                        ? " "
+                        : grupos[index].numeros[4]}
                     </td>
                     <td></td>
                   </tr>
@@ -320,7 +316,9 @@ function Tabla({ grupos, fecha }) {
                       Descansa y se va a: Coahuixco.{" "}
                     </td>
                     <td className="celda-tacopan">
-                      {grupos[index].numeros[5]}
+                      {grupos[index].numeros[5] === 0
+                        ? " "
+                        : grupos[index].numeros[5]}
                     </td>
                     <td></td>
                   </tr>
@@ -331,9 +329,7 @@ function Tabla({ grupos, fecha }) {
                 <React.Fragment key={index}>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:05
-                    </td>
+                    <td className="celda-tacopan">7:05</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[0] === 0
                         ? " "
@@ -343,9 +339,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:15
-                    </td>
+                    <td className="celda-tacopan">7:15</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[1] === 0
                         ? " "
@@ -355,9 +349,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:25
-                    </td>
+                    <td className="celda-tacopan">7:25</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[2] === 0
                         ? " "
@@ -367,9 +359,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">
-                      7:35
-                    </td>
+                    <td className="celda-tacopan">7:35</td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[3] === 0
                         ? " "
@@ -382,7 +372,9 @@ function Tabla({ grupos, fecha }) {
                       Descansa y se va a: Coahuixco.{" "}
                     </td>
                     <td className="celda-tacopan">
-                      {grupos[index].numeros[4]}
+                      {grupos[index].numeros[4] === 0
+                        ? " "
+                        : grupos[index].numeros[4]}
                     </td>
                     <td></td>
                   </tr>
@@ -391,7 +383,9 @@ function Tabla({ grupos, fecha }) {
                       Descansa y se va a: Coahuixco.{" "}
                     </td>
                     <td className="celda-tacopan">
-                      {grupos[index].numeros[5]}
+                      {grupos[index].numeros[5] === 0
+                        ? " "
+                        : grupos[index].numeros[5]}
                     </td>
                     <td></td>
                   </tr>
@@ -404,24 +398,32 @@ function Tabla({ grupos, fecha }) {
           <tr>
             <td className="celda-pie" colSpan={4}>
               El operador que no cumpla con su horario de San Miguel sera
-              acredor a 5 días de castigo. Se recomienda mandar evidencia a algun grupo o tener la evidencia en caso de que se le acuse de no haber cumplido con su horario y ruta.
+              acredor a 5 días de castigo. Se recomienda mandar evidencia a
+              algun grupo o tener la evidencia en caso de que se le acuse de no
+              haber cumplido con su horario y ruta.
             </td>
-            
           </tr>
           <tr>
-          <td className="celda-pie" colSpan={4}>
+            <td className="celda-pie" colSpan={4}>
               El operador que se meta a una ruta diferente a la asignada sera
               acredor a un castigo.
             </td>
           </tr>
           <tr>
-          <td className="celda-pie" colSpan={4}>
-              Si no tienes tu nota por perdida, por que no trabajaste o por (x) motivo, mandame un Whatsapp y con gusto te envio la ruta asignada que tiene la unidad que vas a operar.
+            <td className="celda-pie" colSpan={4}>
+              Si no tienes tu nota por perdida, por que no trabajaste o por (x)
+              motivo, mandame un Whatsapp y con gusto te envio la ruta asignada
+              que tiene la unidad que vas a operar.
             </td>
           </tr>
         </tfoot>
       </table>
-      <button onClick={capturarTacopan}>Capturar Tacopan</button>
+      <div className="contenedor-boton">
+        <button onClick={capturarTacopan} className="boton-capturar">
+          Capturar Tacopan
+          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        </button>
+      </div>
     </div>
   );
 }
