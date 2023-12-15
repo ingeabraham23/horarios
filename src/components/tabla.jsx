@@ -80,9 +80,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[0] === 0
                         ? " "
-                        : grupos[index].numeros[0]}
+                        : <strong>{grupos[index].numeros[0]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -90,9 +90,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[1] === 0
                         ? " "
-                        : grupos[index].numeros[1]}
+                        : <strong>{grupos[index].numeros[1]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -100,9 +100,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[2] === 0
                         ? " "
-                        : grupos[index].numeros[2]}
+                        : <strong>{grupos[index].numeros[2]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -110,9 +110,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[3] === 0
                         ? " "
-                        : grupos[index].numeros[3]}
+                        : <strong>{grupos[index].numeros[3]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td colSpan={2} className="celda-tacopan" style={{letterSpacing:"0.5px"}}>
@@ -121,9 +121,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[4] === 0
                         ? " "
-                        : grupos[index].numeros[4]}
+                        : <strong>{grupos[index].numeros[4]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td colSpan={2} className="celda-tacopan" style={{letterSpacing:"0.5px"}}>
@@ -132,9 +132,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[5] === 0
                         ? " "
-                        : grupos[index].numeros[5]}
+                        : <strong>{grupos[index].numeros[5]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                 </React.Fragment>
               );
@@ -147,9 +147,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[0] === 0
                         ? " "
-                        : grupos[index].numeros[0]}
+                        : <strong>{grupos[index].numeros[0]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -157,9 +157,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[1] === 0
                         ? " "
-                        : grupos[index].numeros[1]}
+                        : <strong>{grupos[index].numeros[1]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -167,9 +167,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[2] === 0
                         ? " "
-                        : grupos[index].numeros[2]}
+                        : <strong>{grupos[index].numeros[2]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -177,9 +177,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[3] === 0
                         ? " "
-                        : grupos[index].numeros[3]}
+                        : <strong>{grupos[index].numeros[3]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td colSpan={2} className="celda-tacopan" style={{letterSpacing:"0.5px"}}>
@@ -188,9 +188,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[4] === 0
                         ? " "
-                        : grupos[index].numeros[4]}
+                        : <strong>{grupos[index].numeros[4]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index]}}>
                     <td colSpan={2} className="celda-tacopan" style={{letterSpacing:"0.5px"}}>
@@ -199,9 +199,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[5] === 0
                         ? " "
-                        : grupos[index].numeros[5]}
+                        : <strong>{grupos[index].numeros[5]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                 </React.Fragment>
               );
@@ -210,7 +210,7 @@ function Tabla({ grupos, fecha }) {
                 <tr key={index} style={{ backgroundColor: coloresFila[index] }}>
                   <td style={{ width: "25%" }}>{rutas[index]}</td>
                   <td colSpan={2}>{grupo.numeros.join(", ")}</td>
-                  <td style={{ width: "23%" }}>{grupo.nombre}</td>
+                  <td style={{ width: "23%" }} className="celda-nombre">{grupo.nombre}</td>
                 </tr>
               );
             }
@@ -250,7 +250,7 @@ function Tabla({ grupos, fecha }) {
       <table align="center" ref={tacopanRef}>
         <thead>
           <tr>
-            <th colSpan={4} style={{ backgroundColor: "#B4B4B2" }}>
+            <th colSpan={4} style={{ backgroundColor: "#B4B4B2", letterSpacing: "2px" }}>
               {fecha.toLocaleDateString("es-MX", opciones)}
             </th>
           </tr>
@@ -266,9 +266,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[0] === 0
                         ? " "
-                        : grupos[index].numeros[0]}
+                        : <strong>{grupos[index].numeros[0]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -276,9 +276,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[1] === 0
                         ? " "
-                        : grupos[index].numeros[1]}
+                        : <strong>{grupos[index].numeros[1]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -286,9 +286,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[2] === 0
                         ? " "
-                        : grupos[index].numeros[2]}
+                        : <strong>{grupos[index].numeros[2]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -296,31 +296,31 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[3] === 0
                         ? " "
-                        : grupos[index].numeros[3]}
+                        : <strong>{grupos[index].numeros[3]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
-                    <td colSpan={2} className="celda-tacopan">
-                      Descansa y se va a: Coahuixco.{" "}
+                    <td colSpan={2} className="celda-tacopan" style={{letterSpacing:"0.5px"}}>
+                      Descansa y se va a: <strong>Coahuixco.</strong>{" "}
                     </td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[4] === 0
                         ? " "
-                        : grupos[index].numeros[4]}
+                        : <strong>{grupos[index].numeros[4]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
-                    <td colSpan={2} className="celda-tacopan">
-                      Descansa y se va a: Coahuixco.{" "}
+                    <td colSpan={2} className="celda-tacopan" style={{letterSpacing:"0.5px"}}>
+                      Descansa y se va a: <strong>Coahuixco.</strong>{" "}
                     </td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[5] === 0
                         ? " "
-                        : grupos[index].numeros[5]}
+                        : <strong>{grupos[index].numeros[5]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                 </React.Fragment>
               );
@@ -333,9 +333,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[0] === 0
                         ? " "
-                        : grupos[index].numeros[0]}
+                        : <strong>{grupos[index].numeros[0]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -343,9 +343,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[1] === 0
                         ? " "
-                        : grupos[index].numeros[1]}
+                        : <strong>{grupos[index].numeros[1]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -353,9 +353,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[2] === 0
                         ? " "
-                        : grupos[index].numeros[2]}
+                        : <strong>{grupos[index].numeros[2]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-tacopan">{rutas[index]}</td>
@@ -363,31 +363,31 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan">
                       {grupos[index].numeros[3] === 0
                         ? " "
-                        : grupos[index].numeros[3]}
+                        : <strong>{grupos[index].numeros[3]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
-                    <td colSpan={2} className="celda-tacopan">
-                      Descansa y se va a: Coahuixco.{" "}
+                    <td colSpan={2} className="celda-tacopan" style={{letterSpacing:"0.5px"}}>
+                      Descansa y se va a: <strong>Coahuixco.</strong>{" "}
                     </td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[4] === 0
                         ? " "
-                        : grupos[index].numeros[4]}
+                        : <strong>{grupos[index].numeros[4]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
-                    <td colSpan={2} className="celda-tacopan">
-                      Descansa y se va a: Coahuixco.{" "}
+                    <td colSpan={2} className="celda-tacopan" style={{letterSpacing:"0.5px"}}>
+                      Descansa y se va a: <strong>Coahuixco.</strong>{" "}
                     </td>
                     <td className="celda-tacopan">
                       {grupos[index].numeros[5] === 0
                         ? " "
-                        : grupos[index].numeros[5]}
+                        : <strong>{grupos[index].numeros[5]}</strong>}
                     </td>
-                    <td></td>
+                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                 </React.Fragment>
               );
@@ -396,7 +396,7 @@ function Tabla({ grupos, fecha }) {
         </tbody>
         <tfoot>
           <tr>
-            <td className="celda-pie" colSpan={4}>
+            <td className="celda-pie" colSpan={4} style={{letterSpacing:"1px"}}>
               El operador que no cumpla con su horario de San Miguel sera
               acredor a 5 días de castigo. Se recomienda mandar evidencia a
               algun grupo o tener la evidencia en caso de que se le acuse de no
@@ -404,13 +404,13 @@ function Tabla({ grupos, fecha }) {
             </td>
           </tr>
           <tr>
-            <td className="celda-pie" colSpan={4}>
+            <td className="celda-pie" colSpan={4} style={{letterSpacing:"1px"}}>
               El operador que se meta a una ruta diferente a la asignada sera
               acredor a un castigo.
             </td>
           </tr>
           <tr>
-            <td className="celda-pie" colSpan={4}>
+            <td className="celda-pie" colSpan={4} style={{letterSpacing:"1px"}}>
               Si no tienes tu nota por perdida, por que no trabajaste o por (x)
               motivo, mandame un Whatsapp y con gusto te envio la ruta asignada
               que tiene la unidad que vas a operar.

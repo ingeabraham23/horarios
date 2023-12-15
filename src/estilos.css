@@ -19,6 +19,18 @@
   margin: 3px; /* Espacio externo */
 }
 
+.celda-nombre {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 14px; /* Tamaño de fuente */
+  /*font-weight: bold;         /* Peso de la fuente */
+  text-align: center; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+  font-size: 13px;
+}
+
 .celda-pie {
   color: rgb(255, 255, 255); /* Color del texto */
   background-color: #808080;
