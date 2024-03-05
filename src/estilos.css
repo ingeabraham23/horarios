@@ -13,7 +13,40 @@
   border: 1px solid rgb(0, 0, 0); /* Borde */
   font-size: 14px; /* Tamaño de fuente */
   /*font-weight: bold;         /* Peso de la fuente */
-  text-align: right; /* Alineación del texto */
+  text-align: center; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+.celda-tacopan-detalle {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 18px; /* Tamaño de fuente */
+  /*font-weight: bold;         /* Peso de la fuente */
+  text-align: center; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+.celda-tacopan-unidad {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 20px; /* Tamaño de fuente */
+  /*font-weight: bold;         /* Peso de la fuente */
+  text-align: center; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+.celda-flechas {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 6px; /* Tamaño de fuente */
+  /*font-weight: bold;         /* Peso de la fuente */
+  text-align: center; /* Alineación del texto */
   vertical-align: middle; /* Alineación vertical */
   padding: 4px; /* Espacio interno */
   margin: 3px; /* Espacio externo */
