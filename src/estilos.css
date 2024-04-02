@@ -1,13 +1,3 @@
-/*background-color: blue;    /* Color de fondo */
-/*color: white;              /* Color del texto */
-/*border: 1px solid black;   /* Borde */
-/*font-size: 14px;           /* Tamaño de fuente */
-/*font-weight: bold;         /* Peso de la fuente */
-/*text-align: center;        /* Alineación del texto */
-/*vertical-align: middle;    /* Alineación vertical */
-/*padding: 10px;             /* Espacio interno */
-/*margin: 5px;               /* Espacio externo */
-
 .celda-tacopan {
   color: rgb(0, 0, 0); /* Color del texto */
   border: 1px solid rgb(0, 0, 0); /* Borde */
@@ -182,4 +172,26 @@ input[type="text"]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.celda-icono {
+  color: rgb(255, 255, 255); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 30px; /* Tamaño de fuente */
+  /*font-weight: bold;         /* Peso de la fuente */
+  text-align: center; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 0px; /* Espacio interno */
+  margin: 0px; /* Espacio externo */
+}
+
+.celda-sanmiguel {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 20px; /* Tamaño de fuente */
+  font-weight: bold;         /* Peso de la fuente
+  text-align: center; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
 }

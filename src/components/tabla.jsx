@@ -136,13 +136,22 @@ function Tabla({ grupos, fecha }) {
           <tr>
             <td></td>
           </tr>
+
+          <tr>
+            <td
+              style={{ backgroundColor: "#F54A4A" }}
+              colSpan={9}
+              className="celda-icono"
+            >
+              <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
+            </td>
+          </tr>
           <tr>
             <td
               style={{ backgroundColor: "#F54A4A" }}
               className="celda-tacopan-detalle"
               colSpan={9}
             >
-              <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
               El operador que se meta a una ruta diferente a la asignada,
               despues de las 7 de la mañana, sera acredor a un castigo de 5 días
               sin poder laborar.
@@ -151,10 +160,18 @@ function Tabla({ grupos, fecha }) {
           <tr>
             <td
               style={{ backgroundColor: "#00BDFF" }}
+              colSpan={9}
+              className="celda-icono"
+            >
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style={{ backgroundColor: "#00BDFF" }}
               className="celda-tacopan-detalle"
               colSpan={9}
             >
-              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
               Antes de las 7 de la mañana te puedes enrolar en otra ruta que no
               te corresponda y posteriormente estando en la base de teziutlan ya
               te diriges a la ruta que te corresponda.
@@ -174,7 +191,7 @@ function Tabla({ grupos, fecha }) {
         <thead>
           <tr>
             <th
-              colSpan={4}
+              colSpan={3}
               style={{ backgroundColor: "#B4B4B2", letterSpacing: "2px" }}
             >
               {fecha.toLocaleDateString("es-MX", opciones)}
@@ -187,52 +204,48 @@ function Tabla({ grupos, fecha }) {
               return (
                 <React.Fragment key={index}>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
-                    <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">7:05</td>
-                    <td className="celda-tacopan">
+                    <td className="celda-sanmiguel">{rutas[index]}</td>
+                    <td className="celda-sanmiguel">7:05</td>
+                    <td className="celda-sanmiguel">
                       {grupos[index].numeros[0] === 0 ? (
                         " "
                       ) : (
                         <strong>{grupos[index].numeros[0]}</strong>
                       )}
                     </td>
-                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
-                    <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">7:15</td>
-                    <td className="celda-tacopan">
+                    <td className="celda-sanmiguel">{rutas[index]}</td>
+                    <td className="celda-sanmiguel">7:15</td>
+                    <td className="celda-sanmiguel">
                       {grupos[index].numeros[1] === 0 ? (
                         " "
                       ) : (
                         <strong>{grupos[index].numeros[1]}</strong>
                       )}
                     </td>
-                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
-                    <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">7:25</td>
-                    <td className="celda-tacopan">
+                    <td className="celda-sanmiguel">{rutas[index]}</td>
+                    <td className="celda-sanmiguel">7:25</td>
+                    <td className="celda-sanmiguel">
                       {grupos[index].numeros[2] === 0 ? (
                         " "
                       ) : (
                         <strong>{grupos[index].numeros[2]}</strong>
                       )}
                     </td>
-                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
-                    <td className="celda-tacopan">{rutas[index]}</td>
-                    <td className="celda-tacopan">7:35</td>
-                    <td className="celda-tacopan">
+                    <td className="celda-sanmiguel">{rutas[index]}</td>
+                    <td className="celda-sanmiguel">7:35</td>
+                    <td className="celda-sanmiguel">
                       {grupos[index].numeros[3] === 0 ? (
                         " "
                       ) : (
                         <strong>{grupos[index].numeros[3]}</strong>
                       )}
                     </td>
-                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td
@@ -249,7 +262,6 @@ function Tabla({ grupos, fecha }) {
                         <strong>{grupos[index].numeros[4]}</strong>
                       )}
                     </td>
-                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td
@@ -266,7 +278,6 @@ function Tabla({ grupos, fecha }) {
                         <strong>{grupos[index].numeros[5]}</strong>
                       )}
                     </td>
-                    <td className="celda-nombre">{grupo.nombre}</td>
                   </tr>
                 </React.Fragment>
               );
@@ -281,7 +292,7 @@ function Tabla({ grupos, fecha }) {
             <td
               style={{ backgroundColor: "#F54A4A" }}
               className="celda-tacopan-detalle"
-              colSpan={9}
+              colSpan={3}
             >
               <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
               El operador que no cumpla con su horario de San Miguel sera
@@ -295,7 +306,7 @@ function Tabla({ grupos, fecha }) {
             <td
               style={{ backgroundColor: "#F54A4A" }}
               className="celda-tacopan-detalle"
-              colSpan={9}
+              colSpan={3}
             >
               <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
               No se permite irse a una ruta y en la siguiente vuelta cambiar de
@@ -305,6 +316,17 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td></td>
+          </tr>
+          <tr>
+            <td
+              style={{ backgroundColor: "#00BDFF" }}
+              className="celda-tacopan-detalle"
+              colSpan={3}
+            >
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              Los días Sabado y Domingo no hay servicio a San Miguel, por lo
+              tanto puedes trabajar la ruta de tu agrado, excepto TACOPAN.
+            </td>
           </tr>
           <tr>
             <td
@@ -321,7 +343,7 @@ function Tabla({ grupos, fecha }) {
             <td
               style={{ backgroundColor: "#00BDFF" }}
               className="celda-tacopan-detalle"
-              colSpan={9}
+              colSpan={3}
             >
               <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
               Para las unidades que les toca descansar, al igual que las que
@@ -607,6 +629,34 @@ function Tabla({ grupos, fecha }) {
                     <td style={{ backgroundColor: "#000000" }}></td>
                     <td className="celda-tacopan-detalle">9:50</td>
                   </tr>
+                  <tr>
+                    <td colSpan={7}>Descansa y se va a <strong>Coahuixco</strong>.</td>
+                    <td
+                      style={{ backgroundColor: "#98F009" }}
+                      className="celda-tacopan-unidad"
+                      colSpan={2}
+                    >
+                      {grupos[index].numeros[0] === 0 ? (
+                        " "
+                      ) : (
+                        <strong>{grupos[index].numeros[4]}</strong>
+                      )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colSpan={7}>Descansa y se va a <strong>Coahuixco</strong>.</td>
+                    <td
+                      style={{ backgroundColor: "#98F009" }}
+                      className="celda-tacopan-unidad"
+                      colSpan={2}
+                    >
+                      {grupos[index].numeros[0] === 0 ? (
+                        " "
+                      ) : (
+                        <strong>{grupos[index].numeros[5]}</strong>
+                      )}
+                    </td>
+                  </tr>
                 </React.Fragment>
               );
             }
@@ -620,7 +670,8 @@ function Tabla({ grupos, fecha }) {
               colSpan={9}
             >
               ⚠ El tiempo que tienes para estar en la parada El Cerrito, a
-              partir de tu salida del fondo de Tacopan, es de <strong>6</strong> minutos.
+              partir de tu salida del fondo de Tacopan, es de <strong>6</strong>{" "}
+              minutos.
             </td>
           </tr>
         </tfoot>
@@ -640,8 +691,8 @@ function Tabla({ grupos, fecha }) {
               colSpan={9}
               style={{ backgroundColor: "#FFFB00", letterSpacing: "2px" }}
             >
-              Tiempos para la ruta TACOPAN, desde la base despues de
-              la 9 de la mañana.
+              Tiempos para la ruta TACOPAN, desde la base despues de la 9 de la
+              mañana.
             </th>
           </tr>
         </thead>
@@ -722,7 +773,7 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan-detalle">11:26</td>
                   </tr>
                   <tr style={{ backgroundColor: "white" }}>
-                    <td >34 minutos</td>
+                    <td>34 minutos</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
                     <td>
                       <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
@@ -757,7 +808,7 @@ function Tabla({ grupos, fecha }) {
           })}
         </tbody>
         <tfoot>
-        <tr>
+          <tr>
             <td colSpan={9}></td>
           </tr>
           <tr>
@@ -767,7 +818,9 @@ function Tabla({ grupos, fecha }) {
               colSpan={9}
             >
               <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
-              El tiempo que tienes para estar dando vuelta al fondo en TACOPAN, a partir de tu salida de TEZIUTLAN, es de <strong>40</strong> minutos.
+              El tiempo que tienes para estar dando vuelta al fondo en TACOPAN,
+              a partir de tu salida de TEZIUTLAN, es de <strong>40</strong>{" "}
+              minutos.
             </td>
           </tr>
           <tr>
@@ -780,9 +833,9 @@ function Tabla({ grupos, fecha }) {
               colSpan={9}
             >
               <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
-              El tiempo que tienes para estar en la parada EL CERRITO, a
-              partir de tu salida del fondo de TACOPAN,
-              es de <strong>6</strong> MINUTOS.
+              El tiempo que tienes para estar en la parada EL CERRITO, a partir
+              de tu salida del fondo de TACOPAN, es de <strong>6</strong>{" "}
+              MINUTOS.
             </td>
           </tr>
           <tr>
