@@ -38,10 +38,14 @@ function Tabla({ grupos, fecha }) {
     "San Miguel",
   ];
   const tablaRef = useRef(null);
+  const sanMiguelRef = useRef(null);
   const tacopanRef = useRef(null);
-  const tacopanDetalleRef = useRef(null);
   const tacopanFrecuenciaRef = useRef(null);
   const tacopanCerritoRef = useRef(null);
+  const tacopan715 = useRef(null);
+  const tacopan630 = useRef(null);
+  const tacopan645 = useRef(null);
+  const tacopan700 = useRef(null);
 
   function capturarTabla() {
     const tabla = tablaRef.current;
@@ -55,26 +59,32 @@ function Tabla({ grupos, fecha }) {
       document.body.removeChild(downloadLink);
     });
   }
-  function capturarTacopan() {
-    const tabla = tacopanRef.current;
+  function capturarSanMiguel() {
+    const tabla = sanMiguelRef.current;
     html2canvas(tabla).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
-      downloadLink.download = fecha.toLocaleDateString("es-MX", opciones);
+      downloadLink.download = `${fecha.toLocaleDateString(
+        "es-MX",
+        opciones
+      )}, San Miguel`;
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
     });
   }
 
-  function capturarTacopanDetalle() {
-    const tabla = tacopanDetalleRef.current;
+  function capturarTacopan() {
+    const tabla = tacopanRef.current;
     html2canvas(tabla).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
-      downloadLink.download = fecha.toLocaleDateString("es-MX", opciones);
+      downloadLink.download = `${fecha.toLocaleDateString(
+        "es-MX",
+        opciones
+      )}, Tacopan`;
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
@@ -87,19 +97,87 @@ function Tabla({ grupos, fecha }) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
-      downloadLink.download = fecha.toLocaleDateString("es-MX", opciones);
+      downloadLink.download = `${fecha.toLocaleDateString(
+        "es-MX",
+        opciones
+      )}, Frecuencia`;
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
     });
   }
+
   function capturarTacopanCerrito() {
     const tabla = tacopanCerritoRef.current;
     html2canvas(tabla).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
-      downloadLink.download = fecha.toLocaleDateString("es-MX", opciones);
+      downloadLink.download = `Teziutlan - Tacopan`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+  }
+
+  function capturarTacopan715() {
+    const tabla = tacopan715.current;
+    html2canvas(tabla).then(function (canvas) {
+      const pngUrl = canvas.toDataURL("image/png");
+      const downloadLink = document.createElement("a");
+      downloadLink.href = pngUrl;
+      downloadLink.download = `${fecha.toLocaleDateString(
+        "es-MX",
+        opciones
+      )}, Tacopan 715`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+  }
+
+  function capturarTacopan630() {
+    const tabla = tacopan630.current;
+    html2canvas(tabla).then(function (canvas) {
+      const pngUrl = canvas.toDataURL("image/png");
+      const downloadLink = document.createElement("a");
+      downloadLink.href = pngUrl;
+      downloadLink.download = `${fecha.toLocaleDateString(
+        "es-MX",
+        opciones
+      )}, Tacopan 630`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+  }
+
+  function capturarTacopan645() {
+    const tabla = tacopan645.current;
+    html2canvas(tabla).then(function (canvas) {
+      const pngUrl = canvas.toDataURL("image/png");
+      const downloadLink = document.createElement("a");
+      downloadLink.href = pngUrl;
+      downloadLink.download = `${fecha.toLocaleDateString(
+        "es-MX",
+        opciones
+      )}, Tacopan 645`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+  }
+
+  function capturarTacopan700() {
+    const tabla = tacopan700.current;
+    html2canvas(tabla).then(function (canvas) {
+      const pngUrl = canvas.toDataURL("image/png");
+      const downloadLink = document.createElement("a");
+      downloadLink.href = pngUrl;
+      downloadLink.download = `${fecha.toLocaleDateString(
+        "es-MX",
+        opciones
+      )}, Tacopan 700`;
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
@@ -187,7 +265,7 @@ function Tabla({ grupos, fecha }) {
       </div>
 
       {/************************** Tabla San Miguel**************************************/}
-      <table align="center" ref={tacopanRef}>
+      <table align="center" ref={sanMiguelRef}>
         <thead>
           <tr>
             <th
@@ -195,6 +273,14 @@ function Tabla({ grupos, fecha }) {
               style={{ backgroundColor: "#B4B4B2", letterSpacing: "2px" }}
             >
               {fecha.toLocaleDateString("es-MX", opciones)}
+            </th>
+          </tr>
+          <tr>
+            <th
+              colSpan={9}
+              style={{ backgroundColor: "#FFFB00", letterSpacing: "2px" }}
+            >
+              Rol San Miguel: {grupos[7].nombre}
             </th>
           </tr>
         </thead>
@@ -354,13 +440,13 @@ function Tabla({ grupos, fecha }) {
         </tfoot>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarTacopan} className="boton-capturar">
+        <button onClick={capturarSanMiguel} className="boton-capturar">
           Capturar San Miguel
           <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
         </button>
       </div>
       {/******************* * Tabla tacopan*****************************************/}
-      <table align="center" ref={tacopanDetalleRef}>
+      <table align="center" ref={tacopanRef}>
         <thead>
           <tr>
             <th
@@ -375,7 +461,7 @@ function Tabla({ grupos, fecha }) {
               colSpan={9}
               style={{ backgroundColor: "#FFFB00", letterSpacing: "2px" }}
             >
-              Rol tacopan: {grupos[3].nombre}
+              Rol Tacopan: {grupos[3].nombre}
             </th>
           </tr>
         </thead>
@@ -630,7 +716,9 @@ function Tabla({ grupos, fecha }) {
                     <td className="celda-tacopan-detalle">9:50</td>
                   </tr>
                   <tr>
-                    <td colSpan={7}>Descansa y se va a <strong>Coahuixco</strong>.</td>
+                    <td colSpan={7}>
+                      Descansa y se va a <strong>Coahuixco</strong>.
+                    </td>
                     <td
                       style={{ backgroundColor: "#98F009" }}
                       className="celda-tacopan-unidad"
@@ -644,7 +732,9 @@ function Tabla({ grupos, fecha }) {
                     </td>
                   </tr>
                   <tr>
-                    <td colSpan={7}>Descansa y se va a <strong>Coahuixco</strong>.</td>
+                    <td colSpan={7}>
+                      Descansa y se va a <strong>Coahuixco</strong>.
+                    </td>
                     <td
                       style={{ backgroundColor: "#98F009" }}
                       className="celda-tacopan-unidad"
@@ -677,7 +767,7 @@ function Tabla({ grupos, fecha }) {
         </tfoot>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarTacopanDetalle} className="boton-capturar">
+        <button onClick={capturarTacopan} className="boton-capturar">
           Capturar Tacopan
           <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
         </button>
@@ -1112,6 +1202,1003 @@ function Tabla({ grupos, fecha }) {
       <div className="contenedor-boton">
         <button onClick={capturarTacopanFrecuencia} className="boton-capturar">
           Capturar Frecuencia
+          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        </button>
+      </div>
+
+      {/******************* *          Tabla tacopan 7:15              *****************************************/}
+      <table className="tabla-unidad-tacopan" align="center" ref={tacopan715}>
+        <thead>
+          <tr>
+            <th
+              colSpan={7}
+              style={{ backgroundColor: "#B4B4B2", letterSpacing: "2px" }}
+            >
+              {fecha.toLocaleDateString("es-MX", opciones)}
+            </th>
+          </tr>
+          <tr>
+            <th
+              colSpan={6}
+              style={{ backgroundColor: "#FFFB00", letterSpacing: "2px" }}
+            >
+              Itinerario para la unidad
+            </th>
+            <th className="unidad-itinerario">{grupos[3].numeros[0]}</th>
+          </tr>
+          <tr>
+            <th colSpan={7}></th>
+          </tr>
+        </thead>
+        <tbody>
+          {grupos.map((grupo, index) => {
+            if (index === 3) {
+              return (
+                <React.Fragment key={index}>
+                  
+                  <tr style={{ backgroundColor: coloresFila[index] }}>
+                    <td className="celda-principal">{rutas[index]}</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">7:15</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">8:20</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">9:30</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">6 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">CERRITO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:21</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:26</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:36</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">4 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">EL PUERTO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:25</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:30</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:40</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">3 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LA JAROCHA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:28</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:33</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:43</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">3 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LINDA TARDE</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:31</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:36</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:46</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">
+                      14 minutos en la primera vuelta y 19 minutos en las
+                      siguientes 2 vueltas.
+                    </td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#29BFE8" }}>
+                    <td className="celda-principal-teziutlan">Teziutlan</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">7:45</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">8:55</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">10:05</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">10 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr>
+                    <td className="celda-secundaria">RETORNO BIMBO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:55</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:05</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LOS ARCOS</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:00</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:10</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LA JAROCHA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:05</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:15</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">CALIFORNIA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:10</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:20</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+                </React.Fragment>
+              );
+            }
+          })}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td className="pie-tacopan-unidad" colSpan={7}>
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              Por favor, recuerde la importancia de cumplir con el itinerario.
+              Esto garantiza la puntualidad para los pasajeros y evita afectar
+              la operación de los demas compañeros. Su compromiso es fundamental
+              para mantener la reputación y confianza en nuestro sistema de
+              transporte y evitar cualquier tipo de castigo para el operador.
+            </td>
+          </tr>
+          <tr>
+            <td className="pie-tacopan-unidad" colSpan={7}>
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              En caso de que experimente retrasos en su itinerario, le
+              recordamos que tiene la opción de utilizar las vías alternativas
+              disponibles, como el Arco Francia o el Libramiento, para ajustar
+              sus horarios. Le recomendamos hacerlo con la debida precaución y
+              considerando la seguridad de todos los involucrados.
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      <div className="contenedor-boton">
+        <button onClick={capturarTacopan715} className="boton-capturar">
+          Capturar Tacopan
+          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        </button>
+      </div>
+
+      {/******************* *          Tabla tacopan 6:30              *****************************************/}
+      <table className="tabla-unidad-tacopan" align="center" ref={tacopan630}>
+        <thead>
+          <tr>
+            <th
+              colSpan={7}
+              style={{ backgroundColor: "#B4B4B2", letterSpacing: "2px" }}
+            >
+              {fecha.toLocaleDateString("es-MX", opciones)}
+            </th>
+          </tr>
+          <tr>
+            <th
+              colSpan={6}
+              style={{ backgroundColor: "#FFFB00", letterSpacing: "2px" }}
+            >
+              Itinerario para la unidad
+            </th>
+            <th className="unidad-itinerario">{grupos[3].numeros[1]}</th>
+          </tr>
+          <tr>
+            <th colSpan={7}></th>
+          </tr>
+        </thead>
+        <tbody>
+          {grupos.map((grupo, index) => {
+            if (index === 3) {
+              return (
+                <React.Fragment key={index}>
+                  <tr style={{ backgroundColor: coloresFila[index] }}>
+                    <td className="celda-principal">{rutas[index]}</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">6:30</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">7:35</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">8:45</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">6 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">CERRITO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">6:36</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:41</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:51</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">4 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">EL PUERTO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">6:40</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:45</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:55</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">3 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LA JAROCHA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">6:43</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:48</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:58</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">3 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LINDA TARDE</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">6:46</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:51</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:01</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">
+                      14 minutos en la primera vuelta y 19 minutos en las
+                      siguientes 2 vueltas.
+                    </td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#29BFE8" }}>
+                    <td className="celda-principal-teziutlan">Teziutlan</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">7:00</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">8:10</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">9:20</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">10 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr>
+                    <td className="celda-secundaria">RETORNO BIMBO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:10</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:20</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LOS ARCOS</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:15</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:25</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LA JAROCHA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:20</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:30</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">CALIFORNIA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:25</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:35</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+                </React.Fragment>
+              );
+            }
+          })}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td className="pie-tacopan-unidad" colSpan={7}>
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              Por favor, recuerde la importancia de cumplir con el itinerario.
+              Esto garantiza la puntualidad para los pasajeros y evita afectar
+              la operación de los demas compañeros. Su compromiso es fundamental
+              para mantener la reputación y confianza en nuestro sistema de
+              transporte y evitar cualquier tipo de castigo para el operador.
+            </td>
+          </tr>
+          <tr>
+            <td className="pie-tacopan-unidad" colSpan={7}>
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              En caso de que experimente retrasos en su itinerario, le
+              recordamos que tiene la opción de utilizar las vías alternativas
+              disponibles, como el Arco Francia o el Libramiento, para ajustar
+              sus horarios. Le recomendamos hacerlo con la debida precaución y
+              considerando la seguridad de todos los involucrados.
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      <div className="contenedor-boton">
+        <button onClick={capturarTacopan630} className="boton-capturar">
+          Capturar Tacopan
+          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        </button>
+      </div>
+
+      {/******************* *          Tabla tacopan 6:45              *****************************************/}
+      <table className="tabla-unidad-tacopan" align="center" ref={tacopan645}>
+        <thead>
+          <tr>
+            <th
+              colSpan={7}
+              style={{ backgroundColor: "#B4B4B2", letterSpacing: "2px" }}
+            >
+              {fecha.toLocaleDateString("es-MX", opciones)}
+            </th>
+          </tr>
+          <tr>
+            <th
+              colSpan={6}
+              style={{ backgroundColor: "#FFFB00", letterSpacing: "2px" }}
+            >
+              Itinerario para la unidad
+            </th>
+            <th className="unidad-itinerario">{grupos[3].numeros[2]}</th>
+          </tr>
+          <tr>
+            <th colSpan={7}></th>
+          </tr>
+        </thead>
+        <tbody>
+          {grupos.map((grupo, index) => {
+            if (index === 3) {
+              return (
+                <React.Fragment key={index}>
+                  <tr style={{ backgroundColor: coloresFila[index] }}>
+                    <td className="celda-principal">{rutas[index]}</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">6:45</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">7:50</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">9:00</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">6 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">CERRITO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">6:51</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:56</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:06</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">4 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">EL PUERTO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">6:55</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:00</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:10</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">3 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LA JAROCHA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">6:58</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:03</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:13</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">3 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LINDA TARDE</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:01</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:06</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:16</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">
+                      14 minutos en la primera vuelta y 19 minutos en las
+                      siguientes 2 vueltas.
+                    </td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#29BFE8" }}>
+                    <td className="celda-principal-teziutlan">Teziutlan</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">7:15</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">8:25</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">9:35</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">10 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr>
+                    <td className="celda-secundaria">RETORNO BIMBO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:25</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:35</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LOS ARCOS</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:30</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:40</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LA JAROCHA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:35</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:45</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">CALIFORNIA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:40</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:50</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+                </React.Fragment>
+              );
+            }
+          })}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td className="pie-tacopan-unidad" colSpan={7}>
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              Por favor, recuerde la importancia de cumplir con el itinerario.
+              Esto garantiza la puntualidad para los pasajeros y evita afectar
+              la operación de los demas compañeros. Su compromiso es fundamental
+              para mantener la reputación y confianza en nuestro sistema de
+              transporte y evitar cualquier tipo de castigo para el operador.
+            </td>
+          </tr>
+          <tr>
+            <td className="pie-tacopan-unidad" colSpan={7}>
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              En caso de que experimente retrasos en su itinerario, le
+              recordamos que tiene la opción de utilizar las vías alternativas
+              disponibles, como el Arco Francia o el Libramiento, para ajustar
+              sus horarios. Le recomendamos hacerlo con la debida precaución y
+              considerando la seguridad de todos los involucrados.
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      <div className="contenedor-boton">
+        <button onClick={capturarTacopan645} className="boton-capturar">
+          Capturar Tacopan
+          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        </button>
+      </div>
+
+      {/******************* *          Tabla tacopan 6:45              *****************************************/}
+      <table className="tabla-unidad-tacopan" align="center" ref={tacopan700}>
+        <thead>
+          <tr>
+            <th
+              colSpan={7}
+              style={{ backgroundColor: "#B4B4B2", letterSpacing: "2px" }}
+            >
+              {fecha.toLocaleDateString("es-MX", opciones)}
+            </th>
+          </tr>
+          <tr>
+            <th
+              colSpan={6}
+              style={{ backgroundColor: "#FFFB00", letterSpacing: "2px" }}
+            >
+              Itinerario para la unidad
+            </th>
+            <th className="unidad-itinerario">{grupos[3].numeros[3]}</th>
+          </tr>
+          <tr>
+            <th colSpan={7}></th>
+          </tr>
+        </thead>
+        <tbody>
+          {grupos.map((grupo, index) => {
+            if (index === 3) {
+              return (
+                <React.Fragment key={index}>
+                  <tr style={{ backgroundColor: coloresFila[index] }}>
+                    <td className="celda-principal">{rutas[index]}</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">7:00</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">8:05</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal">9:15</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">6 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">CERRITO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:06</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:11</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:21</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">4 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">EL PUERTO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:10</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:15</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:25</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">3 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LA JAROCHA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:13</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:18</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:28</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">3 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LINDA TARDE</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:16</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:21</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:31</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">
+                      14 minutos en la primera vuelta y 19 minutos en las
+                      siguientes 2 vueltas.
+                    </td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#29BFE8" }}>
+                    <td className="celda-principal-teziutlan">Teziutlan</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">7:30</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">8:40</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-principal-teziutlan">9:50</td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">10 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr>
+                    <td className="celda-secundaria">RETORNO BIMBO</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:40</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:50</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LOS ARCOS</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:45</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">8:55</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">LA JAROCHA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:50</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:00</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+
+                  <tr style={{ backgroundColor: "white" }}>
+                    <td className="celda-flechas">5 minutos</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas">⬇</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-flechas"></td>
+                  </tr>
+                  <tr style={{ backgroundColor: "#F19136" }}>
+                    <td className="celda-secundaria">CALIFORNIA</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">7:55</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria">9:05</td>
+                    <td style={{ backgroundColor: "#000000" }}></td>
+                    <td className="celda-secundaria"></td>
+                  </tr>
+                </React.Fragment>
+              );
+            }
+          })}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td className="pie-tacopan-unidad" colSpan={7}>
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              Por favor, recuerde la importancia de cumplir con el itinerario.
+              Esto garantiza la puntualidad para los pasajeros y evita afectar
+              la operación de los demas compañeros. Su compromiso es fundamental
+              para mantener la reputación y confianza en nuestro sistema de
+              transporte y evitar cualquier tipo de castigo para el operador.
+            </td>
+          </tr>
+          <tr>
+            <td className="pie-tacopan-unidad" colSpan={7}>
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              En caso de que experimente retrasos en su itinerario, le
+              recordamos que tiene la opción de utilizar las vías alternativas
+              disponibles, como el Arco Francia o el Libramiento, para ajustar
+              sus horarios. Le recomendamos hacerlo con la debida precaución y
+              considerando la seguridad de todos los involucrados.
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      <div className="contenedor-boton">
+        <button onClick={capturarTacopan700} className="boton-capturar">
+          Capturar Tacopan
           <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
         </button>
       </div>

@@ -34,12 +34,12 @@
 .celda-flechas {
   color: rgb(0, 0, 0); /* Color del texto */
   border: 1px solid rgb(0, 0, 0); /* Borde */
-  font-size: 6px; /* Tamaño de fuente */
-  /*font-weight: bold;         /* Peso de la fuente */
+  font-size: 10px; /* Tamaño de fuente */
+  font-weight: bold;         /* Peso de la fuente */
   text-align: center; /* Alineación del texto */
   vertical-align: middle; /* Alineación vertical */
-  padding: 4px; /* Espacio interno */
-  margin: 3px; /* Espacio externo */
+  padding: 0px; /* Espacio interno */
+  margin: 0px; /* Espacio externo */
 }
 
 .celda-nombre {
@@ -192,6 +192,61 @@ input[type="text"]:focus {
   font-weight: bold;         /* Peso de la fuente
   text-align: center; /* Alineación del texto */
   vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+.tabla-unidad-tacopan {
+  border-collapse: collapse;
+  width: 98%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.unidad-itinerario {
+  color: rgb(255, 255, 255); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 30px; /* Tamaño de fuente */
+  font-weight: bold;
+  background-color: #ff0000;
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+.celda-principal {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 20px; /* Tamaño de fuente */
+  font-weight: bold;
+  background-color: #F6F90C;
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+.celda-principal-teziutlan {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 20px; /* Tamaño de fuente */
+  font-weight: bold;
+  background-color: #00c3ff;
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+.celda-secundaria {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 14px; /* Tamaño de fuente */
+  background-color: #00ff9d;
+  padding: 1px; /* Espacio interno */
+  margin: 1px; /* Espacio externo */
+}
+
+.pie-tacopan-unidad {
+  color: rgb(255, 255, 255); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 12px; /* Tamaño de fuente */
+  background-color: #555555;
   padding: 4px; /* Espacio interno */
   margin: 3px; /* Espacio externo */
 }
