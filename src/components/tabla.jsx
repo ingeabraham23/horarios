@@ -377,7 +377,7 @@ function Tabla({ grupos, fecha }) {
           <tr>
             <td
               style={{ backgroundColor: "#F54A4A" }}
-              className="celda-tacopan-detalle"
+              className="celda-sanmiguelchica-detalle"
               colSpan={3}
             >
               <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
@@ -391,7 +391,7 @@ function Tabla({ grupos, fecha }) {
           <tr>
             <td
               style={{ backgroundColor: "#F54A4A" }}
-              className="celda-tacopan-detalle"
+              className="celda-sanmiguelchica-detalle"
               colSpan={3}
             >
               <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
@@ -406,35 +406,42 @@ function Tabla({ grupos, fecha }) {
           <tr>
             <td
               style={{ backgroundColor: "#00BDFF" }}
-              className="celda-tacopan-detalle"
+              className="celda-sanmiguelchica-detalle"
               colSpan={3}
             >
               <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
               Los días Sabado y Domingo no hay servicio a San Miguel, por lo
-              tanto puedes trabajar la ruta de tu agrado, excepto TACOPAN.
+              tanto puedes trabajar la ruta de tu agrado, excepto TACOPAN, TEPEPAN Y HUAPALTEPEC.
             </td>
           </tr>
           <tr>
             <td
-              style={{ backgroundColor: "#00BDFF" }}
-              className="celda-tacopan-detalle"
+              className="celda-sanmiguelgrande-detalle"
               colSpan={9}
             >
               <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
-              Manda la evidencia de tu salida de San Miguel en este grupo,
-              puedes mandar una foto o un video.
+              Manda la evidencia (foto) de tu salida de San Miguel a este grupo.
+            </td>
+          </tr>
+          <tr>
+            <td
+              className="celda-sanmiguelgrande-detalle"
+              colSpan={9}
+            >
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              Reporta a este grupo o al checador si la unidad que sigues o que te sigue no la encontraste.
             </td>
           </tr>
           <tr>
             <td
               style={{ backgroundColor: "#00BDFF" }}
-              className="celda-tacopan-detalle"
+              className="celda-sanmiguelchica-detalle"
               colSpan={3}
             >
               <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
               Para las unidades que les toca descansar, al igual que las que
               suben de San Miguel, pueden irse a la ruta de su agrado excepto
-              TACOPAN.
+              TACOPAN, TEPEPAN Y HUAPALTEPEC.
             </td>
           </tr>
         </tfoot>

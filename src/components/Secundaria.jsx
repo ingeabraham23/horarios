@@ -16,11 +16,11 @@ function Secundaria() {
   const [fechaSeleccionada, setFechaSeleccionada] = useState(fechaActual); // Estado para la fecha seleccionada en el DatePicker, se inicializa con la fecha en que se esta ejecutando la aplicación
 
   const [grupos, setGrupos] = useState([
-    { nombre: "GRUPO 7", numeros: [7, 8, 18, 42, 3, 15] },
+    { nombre: "GRUPO 7", numeros: [7, 8, 18, 37, 42, 15] },
     { nombre: "GRUPO 6", numeros: [6, 14, 22, 29, 41] },
     { nombre: "GRUPO 5", numeros: [13, 19, 33, 39, 47, 5] },
     { nombre: "GRUPO 4", numeros: [4, 12, 20, 31] },
-    { nombre: "GRUPO 3", numeros: [11, 28, 37, 38] },
+    { nombre: "GRUPO 3", numeros: [3, 11, 28, 38] },
     { nombre: "GRUPO 2", numeros: [10, 27, 34, 40, 2] },
     { nombre: "GRUPO 1", numeros: [1, 9, 25, 36, 46, 30] },
     { nombre: "GRUPO 8", numeros: [16, 21, 24, 35, 43] },

@@ -20,6 +20,29 @@
   margin: 3px; /* Espacio externo */
 }
 
+.celda-sanmiguelgrande-detalle {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 22px; /* Tamaño de fuente */
+  /* font-weight: bold;         /* Peso de la fuente */
+  background-color: #7bff00;
+  text-align: center; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
+.celda-sanmiguelchica-detalle {
+  color: rgb(0, 0, 0); /* Color del texto */
+  border: 1px solid rgb(0, 0, 0); /* Borde */
+  font-size: 12px; /* Tamaño de fuente */
+  /*font-weight: bold;         /* Peso de la fuente */
+  text-align: center; /* Alineación del texto */
+  vertical-align: middle; /* Alineación vertical */
+  padding: 4px; /* Espacio interno */
+  margin: 3px; /* Espacio externo */
+}
+
 .celda-tacopan-unidad {
   color: rgb(0, 0, 0); /* Color del texto */
   border: 1px solid rgb(0, 0, 0); /* Borde */
@@ -32,10 +55,10 @@
 }
 
 .celda-flechas {
-  color: rgb(0, 0, 0); /* Color del texto */
+  color: rgb(0, 17, 255); /* Color del texto */
   border: 1px solid rgb(0, 0, 0); /* Borde */
   font-size: 10px; /* Tamaño de fuente */
-  font-weight: bold;         /* Peso de la fuente */
+  word-spacing: 1px;
   text-align: center; /* Alineación del texto */
   vertical-align: middle; /* Alineación vertical */
   padding: 0px; /* Espacio interno */
@@ -245,6 +268,7 @@ input[type="text"]:focus {
 .pie-tacopan-unidad {
   color: rgb(255, 255, 255); /* Color del texto */
   border: 1px solid rgb(0, 0, 0); /* Borde */
+  word-spacing: 2px;
   font-size: 12px; /* Tamaño de fuente */
   background-color: #555555;
   padding: 4px; /* Espacio interno */
