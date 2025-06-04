@@ -23,7 +23,7 @@ export default defineConfig({
         dir: "ltr",
         display_override: ["standalone", "fullscreen"],
         display: "standalone",
-        scope: "/",
+        scope: "/horarios/",
         icons: [
           {
             src: "pwa-64x64.png",

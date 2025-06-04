@@ -46,10 +46,11 @@ function Tabla({ grupos, fecha }) {
   const tacopan630 = useRef(null);
   const tacopan645 = useRef(null);
   const tacopan700 = useRef(null);
+  const tablaJarocha = useRef(null);
 
   function capturarTabla() {
     const tabla = tablaRef.current;
-    html2canvas(tabla).then(function (canvas) {
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
@@ -61,7 +62,7 @@ function Tabla({ grupos, fecha }) {
   }
   function capturarSanMiguel() {
     const tabla = sanMiguelRef.current;
-    html2canvas(tabla).then(function (canvas) {
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
@@ -77,7 +78,7 @@ function Tabla({ grupos, fecha }) {
 
   function capturarTacopan() {
     const tabla = tacopanRef.current;
-    html2canvas(tabla).then(function (canvas) {
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
@@ -91,9 +92,25 @@ function Tabla({ grupos, fecha }) {
     });
   }
 
+  function capturarJarocha() {
+    const tabla = tablaJarocha.current;
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
+      const pngUrl = canvas.toDataURL("image/png");
+      const downloadLink = document.createElement("a");
+      downloadLink.href = pngUrl;
+      downloadLink.download = `${fecha.toLocaleDateString(
+        "es-MX",
+        opciones
+      )}, Jarocha`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+  }
+
   function capturarTacopanFrecuencia() {
     const tabla = tacopanFrecuenciaRef.current;
-    html2canvas(tabla).then(function (canvas) {
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
@@ -109,7 +126,7 @@ function Tabla({ grupos, fecha }) {
 
   function capturarTacopanCerrito() {
     const tabla = tacopanCerritoRef.current;
-    html2canvas(tabla).then(function (canvas) {
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
@@ -122,7 +139,7 @@ function Tabla({ grupos, fecha }) {
 
   function capturarTacopan715() {
     const tabla = tacopan715.current;
-    html2canvas(tabla).then(function (canvas) {
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
@@ -138,7 +155,7 @@ function Tabla({ grupos, fecha }) {
 
   function capturarTacopan630() {
     const tabla = tacopan630.current;
-    html2canvas(tabla).then(function (canvas) {
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
@@ -154,7 +171,7 @@ function Tabla({ grupos, fecha }) {
 
   function capturarTacopan645() {
     const tabla = tacopan645.current;
-    html2canvas(tabla).then(function (canvas) {
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
@@ -170,7 +187,7 @@ function Tabla({ grupos, fecha }) {
 
   function capturarTacopan700() {
     const tabla = tacopan700.current;
-    html2canvas(tabla).then(function (canvas) {
+    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
       const pngUrl = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
       downloadLink.href = pngUrl;
@@ -202,7 +219,9 @@ function Tabla({ grupos, fecha }) {
             return (
               <tr key={index} style={{ backgroundColor: coloresFila[index] }}>
                 <td style={{ width: "25%" }}>{rutas[index]}</td>
-                <td colSpan={2}>{grupo.numeros.join(", ")}</td>
+                <td colSpan={2}>
+                  {grupo.numeros.filter((n) => n !== 0).join(", ")}
+                </td>
                 <td style={{ width: "23%" }} className="celda-nombre">
                   {grupo.nombre}
                 </td>
@@ -253,6 +272,11 @@ function Tabla({ grupos, fecha }) {
               Antes de las 7 de la mañana te puedes enrolar en otra ruta que no
               te corresponda y posteriormente estando en la base de teziutlan ya
               te diriges a la ruta que te corresponda.
+            </td>
+          </tr>
+          <tr>
+            <td colSpan={9} className="copyright-horarios">
+              © JoyBoy
             </td>
           </tr>
         </tfoot>
@@ -411,25 +435,21 @@ function Tabla({ grupos, fecha }) {
             >
               <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
               Los días Sabado y Domingo no hay servicio a San Miguel, por lo
-              tanto puedes trabajar la ruta de tu agrado, excepto TACOPAN, TEPEPAN Y HUAPALTEPEC.
+              tanto puedes trabajar la ruta de tu agrado, excepto TACOPAN,
+              TEPEPAN Y HUAPALTEPEC.
             </td>
           </tr>
           <tr>
-            <td
-              className="celda-sanmiguelgrande-detalle"
-              colSpan={9}
-            >
+            <td className="celda-sanmiguelgrande-detalle" colSpan={9}>
               <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
               Manda la evidencia (foto) de tu salida de San Miguel a este grupo.
             </td>
           </tr>
           <tr>
-            <td
-              className="celda-sanmiguelgrande-detalle"
-              colSpan={9}
-            >
+            <td className="celda-sanmiguelgrande-detalle" colSpan={9}>
               <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
-              Reporta a este grupo o al checador si la unidad que sigues o que te sigue no la encontraste.
+              Reporta a este grupo o al checador si la unidad que sigues o que
+              te sigue no la encontraste.
             </td>
           </tr>
           <tr>
@@ -444,6 +464,11 @@ function Tabla({ grupos, fecha }) {
               TACOPAN, TEPEPAN Y HUAPALTEPEC.
             </td>
           </tr>
+          <tr>
+            <td colSpan={9} className="copyright-horarios">
+              © JoyBoy
+            </td>
+          </tr>
         </tfoot>
       </table>
       <div className="contenedor-boton">
@@ -452,6 +477,7 @@ function Tabla({ grupos, fecha }) {
           <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
         </button>
       </div>
+
       {/******************* * Tabla tacopan*****************************************/}
       <table align="center" ref={tacopanRef}>
         <thead>
@@ -731,7 +757,7 @@ function Tabla({ grupos, fecha }) {
                       className="celda-tacopan-unidad"
                       colSpan={2}
                     >
-                      {grupos[index].numeros[0] === 0 ? (
+                      {grupos[index].numeros[4] === 0 ? (
                         " "
                       ) : (
                         <strong>{grupos[index].numeros[4]}</strong>
@@ -747,7 +773,7 @@ function Tabla({ grupos, fecha }) {
                       className="celda-tacopan-unidad"
                       colSpan={2}
                     >
-                      {grupos[index].numeros[0] === 0 ? (
+                      {grupos[index].numeros[5] === 0 ? (
                         " "
                       ) : (
                         <strong>{grupos[index].numeros[5]}</strong>
@@ -769,6 +795,11 @@ function Tabla({ grupos, fecha }) {
               ⚠ El tiempo que tienes para estar en la parada El Cerrito, a
               partir de tu salida del fondo de Tacopan, es de <strong>6</strong>{" "}
               minutos.
+            </td>
+          </tr>
+          <tr>
+            <td colSpan={9} className="copyright-horarios">
+              © JoyBoy
             </td>
           </tr>
         </tfoot>
@@ -803,11 +834,11 @@ function Tabla({ grupos, fecha }) {
                     <td style={{ backgroundColor: "#000000" }}></td>
                     <td className="celda-tacopan-detalle">9:20</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">9:45</td>
+                    <td className="celda-tacopan-detalle">9:40</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:10</td>
+                    <td className="celda-tacopan-detalle">10:00</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:40</td>
+                    <td className="celda-tacopan-detalle">10:20</td>
                   </tr>
                   <tr style={{ backgroundColor: "white" }}>
                     <td>40 minutos</td>
@@ -833,11 +864,11 @@ function Tabla({ grupos, fecha }) {
                     <td style={{ backgroundColor: "#000000" }}></td>
                     <td className="celda-tacopan-detalle">10:00</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:25</td>
+                    <td className="celda-tacopan-detalle">10:20</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:50</td>
+                    <td className="celda-tacopan-detalle">10:40</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:20</td>
+                    <td className="celda-tacopan-detalle">11:00</td>
                   </tr>
                   <tr style={{ backgroundColor: "white" }}>
                     <td>6 minutos</td>
@@ -863,14 +894,14 @@ function Tabla({ grupos, fecha }) {
                     <td style={{ backgroundColor: "#000000" }}></td>
                     <td className="celda-tacopan-detalle">10:06</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:31</td>
+                    <td className="celda-tacopan-detalle">10:26</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:56</td>
+                    <td className="celda-tacopan-detalle">10:46</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:26</td>
+                    <td className="celda-tacopan-detalle">11:06</td>
                   </tr>
                   <tr style={{ backgroundColor: "white" }}>
-                    <td>34 minutos</td>
+                    <td>29 minutos</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
                     <td>
                       <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
@@ -891,13 +922,13 @@ function Tabla({ grupos, fecha }) {
                   <tr style={{ backgroundColor: "#7DF4ED" }}>
                     <td className="celda-tacopan-detalle">Teziutlan</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:40</td>
+                    <td className="celda-tacopan-detalle">10:35</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:05</td>
+                    <td className="celda-tacopan-detalle">10:55</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:30</td>
+                    <td className="celda-tacopan-detalle">11:15</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">12:00</td>
+                    <td className="celda-tacopan-detalle">11:35</td>
                   </tr>
                 </React.Fragment>
               );
@@ -918,6 +949,20 @@ function Tabla({ grupos, fecha }) {
               El tiempo que tienes para estar dando vuelta al fondo en TACOPAN,
               a partir de tu salida de TEZIUTLAN, es de <strong>40</strong>{" "}
               minutos.
+            </td>
+          </tr>
+          <tr>
+            <td colSpan={9}></td>
+          </tr>
+          <tr>
+            <td
+              style={{ backgroundColor: "#00BDFF" }}
+              className="celda-tacopan-detalle"
+              colSpan={9}
+            >
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              El tiempo que tienes para llegar a TEZIUTLAN, a partir de tu
+              salida del FONDO DE TACOPAN , es de <strong>35</strong> minutos.
             </td>
           </tr>
           <tr>
@@ -946,7 +991,12 @@ function Tabla({ grupos, fecha }) {
             >
               <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
               Al compañero que sigas o que te siga lo debes de encontrar en el
-              tramo que comprende desde LA PEDRERA a la CASETA DE COAHUIXCO.
+              tramo que comprende desde QUINTA LA PIEDAD a EL PUERTO.
+            </td>
+          </tr>
+          <tr>
+            <td colSpan={9} className="copyright-horarios">
+              © JoyBoy
             </td>
           </tr>
         </tfoot>
@@ -1204,6 +1254,11 @@ function Tabla({ grupos, fecha }) {
               );
             }
           })}
+          <tr>
+            <td colSpan={3} className="copyright-horarios">
+              © JoyBoy
+            </td>
+          </tr>
         </tbody>
       </table>
       <div className="contenedor-boton">
@@ -1242,7 +1297,6 @@ function Tabla({ grupos, fecha }) {
             if (index === 3) {
               return (
                 <React.Fragment key={index}>
-                  
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-principal">{rutas[index]}</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
@@ -1452,6 +1506,11 @@ function Tabla({ grupos, fecha }) {
               disponibles, como el Arco Francia o el Libramiento, para ajustar
               sus horarios. Le recomendamos hacerlo con la debida precaución y
               considerando la seguridad de todos los involucrados.
+            </td>
+          </tr>
+          <tr>
+            <td colSpan={7} className="copyright-horarios">
+              © JoyBoy
             </td>
           </tr>
         </tfoot>
@@ -1703,6 +1762,11 @@ function Tabla({ grupos, fecha }) {
               considerando la seguridad de todos los involucrados.
             </td>
           </tr>
+          <tr>
+            <td colSpan={7} className="copyright-horarios">
+              © JoyBoy
+            </td>
+          </tr>
         </tfoot>
       </table>
       <div className="contenedor-boton">
@@ -1950,6 +2014,11 @@ function Tabla({ grupos, fecha }) {
               disponibles, como el Arco Francia o el Libramiento, para ajustar
               sus horarios. Le recomendamos hacerlo con la debida precaución y
               considerando la seguridad de todos los involucrados.
+            </td>
+          </tr>
+          <tr>
+            <td colSpan={7} className="copyright-horarios">
+              © JoyBoy
             </td>
           </tr>
         </tfoot>
@@ -2201,11 +2270,106 @@ function Tabla({ grupos, fecha }) {
               considerando la seguridad de todos los involucrados.
             </td>
           </tr>
+          <tr>
+            <td colSpan={7} className="copyright-horarios">
+              © JoyBoy
+            </td>
+          </tr>
         </tfoot>
       </table>
       <div className="contenedor-boton">
         <button onClick={capturarTacopan700} className="boton-capturar">
           Capturar Tacopan
+          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        </button>
+      </div>
+
+      <table className="tabla-jarocha" ref={tablaJarocha}>
+        <thead>
+          <tr>
+            <th colSpan={3}>Tabla jarocha</th>
+          </tr>
+          <tr>
+            <th>Tacopan</th>
+            <th>jarocha</th>
+            <th>Unidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="celda-tacopan-jarocha">6:30</td>
+            <td className="celda-jarocha-jarocha">6:43</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[1]}</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">6:45</td>
+            <td className="celda-jarocha-jarocha">6:58</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[2]}</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">7:00</td>
+            <td className="celda-jarocha-jarocha">7:13</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[3]}</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">7:15</td>
+            <td className="celda-jarocha-jarocha">7:28</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[0]}</td>
+          </tr>
+          <tr>
+            <td colSpan={3}>20 minutos</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">7:35</td>
+            <td className="celda-jarocha-jarocha">7:48</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[1]}</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">7:50</td>
+            <td className="celda-jarocha-jarocha">8:03</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[2]}</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">8:05</td>
+            <td className="celda-jarocha-jarocha">8:18</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[3]}</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">8:20</td>
+            <td className="celda-jarocha-jarocha">8:33</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[0]}</td>
+          </tr>
+          <td colSpan={3}>25 minutos</td>
+          <tr>
+            <td className="celda-tacopan-jarocha">8:45</td>
+            <td className="celda-jarocha-jarocha">8:58</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[1]}</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">9:00</td>
+            <td className="celda-jarocha-jarocha">9:13</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[2]}</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">9:15</td>
+            <td className="celda-jarocha-jarocha">9:28</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[3]}</td>
+          </tr>
+          <tr>
+            <td className="celda-tacopan-jarocha">9:30</td>
+            <td className="celda-jarocha-jarocha">9:43</td>
+            <td className="unidad-itinerario">{grupos[3].numeros[0]}</td>
+          </tr>
+          <tr>
+            <td colSpan={3} className="copyright-horarios">
+              © JoyBoy
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div className="contenedor-boton">
+        <button onClick={capturarJarocha} className="boton-capturar">
+          Capturar Jarocha
           <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
         </button>
       </div>
