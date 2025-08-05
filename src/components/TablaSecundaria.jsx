@@ -9,29 +9,40 @@ function TablaSecundaria({ grupos, onGruposChange }) {
     setEditingNumeros(e.target.value);
   };
 
+  const handleEdit = (index) => {
+    setEditingIndex(index);
+    setEditingNumeros(grupos[index].numeros.join(", "));
+  };
+
   const handleSave = () => {
     if (editingIndex !== -1) {
+      const numeros = editingNumeros
+        .split(",")
+        .map((n) => parseInt(n.trim(), 10))
+        .filter((n) => !isNaN(n));
+
       const newGrupos = [...grupos];
-      const numeros = editingNumeros.split(",").map((n) => parseInt(n.trim()));
       newGrupos[editingIndex] = {
-        numeros: numeros,
-        nombre: grupos[editingIndex].nombre,
+        ...grupos[editingIndex],
+        numeros,
       };
+
       onGruposChange(newGrupos);
       setEditingIndex(-1);
+      setEditingNumeros("");
     }
   };
 
   const handleCancel = () => {
     setEditingIndex(-1);
+    setEditingNumeros("");
   };
 
   return (
     <div>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
-      <hr></hr>
+      <br></br>
+      <br></br>
+      <br></br>
 
       <table>
         <thead>
@@ -50,11 +61,13 @@ function TablaSecundaria({ grupos, onGruposChange }) {
                     <input type="text" value={grupo.nombre} readOnly />
                   </td>
                   <td>
-                    <input type="text" value={grupo.numeros} readOnly />
-                    <input
-                      type="text"
+                    <textarea
                       value={editingNumeros}
                       onChange={handleNumerosChange}
+                      rows={1}
+                      cols={20}
+                      placeholder="Ej: 1, 2, 3, 4"
+                      style={{ fontSize: "18px" }}
                     />
                   </td>
                   <td>
@@ -67,9 +80,7 @@ function TablaSecundaria({ grupos, onGruposChange }) {
                   <td>{grupo.nombre}</td>
                   <td>{grupo.numeros.join(", ")}</td>
                   <td>
-                    <button onClick={() => setEditingIndex(index)}>
-                      Editar
-                    </button>
+                    <button onClick={() => handleEdit(index)}>Editar</button>
                   </td>
                 </>
               )}

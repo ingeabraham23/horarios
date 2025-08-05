@@ -203,6 +203,7 @@ function Tabla({ grupos, fecha }) {
 
   return (
     <div>
+      <br></br>
       <table align="center" ref={tablaRef}>
         <thead>
           <tr>
@@ -337,7 +338,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-sanmiguel">{rutas[index]}</td>
-                    <td className="celda-sanmiguel">7:25</td>
+                    <td className="celda-sanmiguel">7:20</td>
                     <td className="celda-sanmiguel">
                       {grupos[index].numeros[2] === 0 ? (
                         " "
