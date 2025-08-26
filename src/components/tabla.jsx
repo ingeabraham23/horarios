@@ -338,7 +338,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-sanmiguel">{rutas[index]}</td>
-                    <td className="celda-sanmiguel">7:20</td>
+                    <td className="celda-sanmiguel">7:15</td>
                     <td className="celda-sanmiguel">
                       {grupos[index].numeros[2] === 0 ? (
                         " "
@@ -835,11 +835,11 @@ function Tabla({ grupos, fecha }) {
                     <td style={{ backgroundColor: "#000000" }}></td>
                     <td className="celda-tacopan-detalle">9:20</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">9:40</td>
+                    <td className="celda-tacopan-detalle">9:45</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:00</td>
+                    <td className="celda-tacopan-detalle">10:10</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:20</td>
+                    <td className="celda-tacopan-detalle">10:40</td>
                   </tr>
                   <tr style={{ backgroundColor: "white" }}>
                     <td>40 minutos</td>
@@ -865,11 +865,11 @@ function Tabla({ grupos, fecha }) {
                     <td style={{ backgroundColor: "#000000" }}></td>
                     <td className="celda-tacopan-detalle">10:00</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:20</td>
+                    <td className="celda-tacopan-detalle">10:25</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:40</td>
+                    <td className="celda-tacopan-detalle">10:50</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:00</td>
+                    <td className="celda-tacopan-detalle">11:20</td>
                   </tr>
                   <tr style={{ backgroundColor: "white" }}>
                     <td>6 minutos</td>
@@ -895,11 +895,11 @@ function Tabla({ grupos, fecha }) {
                     <td style={{ backgroundColor: "#000000" }}></td>
                     <td className="celda-tacopan-detalle">10:06</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:26</td>
+                    <td className="celda-tacopan-detalle">10:31</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:46</td>
+                    <td className="celda-tacopan-detalle">10:56</td>
                     <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:06</td>
+                    <td className="celda-tacopan-detalle">11:26</td>
                   </tr>
                   <tr style={{ backgroundColor: "white" }}>
                     <td>29 minutos</td>
