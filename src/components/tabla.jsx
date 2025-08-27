@@ -338,7 +338,7 @@ function Tabla({ grupos, fecha }) {
                   </tr>
                   <tr style={{ backgroundColor: coloresFila[index] }}>
                     <td className="celda-sanmiguel">{rutas[index]}</td>
-                    <td className="celda-sanmiguel">7:15</td>
+                    <td className="celda-sanmiguel">7:25</td>
                     <td className="celda-sanmiguel">
                       {grupos[index].numeros[2] === 0 ? (
                         " "
