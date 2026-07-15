@@ -18,17 +18,17 @@ function Tabla({ grupos, fecha }) {
     day: "numeric",
   };
   const coloresFila = [
-    "#EA17FC",
-    "#1668E8",
-    "#4AEC09",
-    "#F6F90C",
-    "#B4B4B2",
-    "#4AEC09",
-    "#F9AA01",
-    "#EE4040",
-  ];
+  "#F7A8FF", // Rosa/Magenta claro
+  "#9CC9FF", // Azul claro
+  "#B9F7A3", // Verde claro
+  "#FFF9A8", // Amarillo claro
+  "#E6E6E6", // Gris claro
+  "#B9F7A3", // Verde claro
+  "#FFD89A", // Naranja claro
+  "#FFB3B3", // Rojo claro
+];
   const rutas = [
-    "Sosa",
+    "Sosa Escuela",
     "Calicapan",
     "Coahuixco",
     "Tacopan",
@@ -218,8 +218,8 @@ function Tabla({ grupos, fecha }) {
         <tbody>
           {grupos.map((grupo, index) => {
             return (
-              <tr key={index} style={{ backgroundColor: coloresFila[index] }}>
-                <td style={{ width: "25%" }}>{rutas[index]}</td>
+              <tr key={index} style={{ backgroundColor: coloresFila[index], fontWeight: 'bold' }}>
+                <td style={{ width: "30%" }}>{rutas[index]}</td>
                 <td colSpan={2}>
                   {grupo.numeros.filter((n) => n !== 0).join(", ")}
                 </td>
@@ -241,7 +241,7 @@ function Tabla({ grupos, fecha }) {
               colSpan={9}
               className="celda-icono"
             >
-              <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
+              <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>{" "}Precaución
             </td>
           </tr>
           <tr>
@@ -261,7 +261,7 @@ function Tabla({ grupos, fecha }) {
               colSpan={9}
               className="celda-icono"
             >
-              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
+              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>{" "}Información
             </td>
           </tr>
           <tr>
@@ -277,7 +277,7 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td colSpan={9} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tfoot>
@@ -467,7 +467,7 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td colSpan={9} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tfoot>
@@ -800,7 +800,7 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td colSpan={9} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tfoot>
@@ -997,7 +997,7 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td colSpan={9} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tfoot>
@@ -1257,7 +1257,7 @@ function Tabla({ grupos, fecha }) {
           })}
           <tr>
             <td colSpan={3} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tbody>
@@ -1511,7 +1511,7 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td colSpan={7} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tfoot>
@@ -1765,7 +1765,7 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td colSpan={7} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tfoot>
@@ -2019,7 +2019,7 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td colSpan={7} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tfoot>
@@ -2273,7 +2273,7 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td colSpan={7} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tfoot>
@@ -2363,7 +2363,7 @@ function Tabla({ grupos, fecha }) {
           </tr>
           <tr>
             <td colSpan={3} className="copyright-horarios">
-              © JoyBoy
+              @el.joyboy.de.chignautla
             </td>
           </tr>
         </tbody>
