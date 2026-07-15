@@ -271,7 +271,7 @@ function Tabla({ grupos, fecha }) {
               colSpan={9}
             >
               Antes de las 7 de la mañana te puedes enrolar en otra ruta que no
-              te corresponda y posteriormente estando en la base de teziutlan ya
+              te corresponda y posteriormente estando en la base de Teziutlan ya
               te diriges a la ruta que te corresponda.
             </td>
           </tr>
