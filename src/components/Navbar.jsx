@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const navigationItems = [
   { path: '/', icon: faClock, label: 'Principal' },
   { path: '/secundaria', icon: faClock, label: 'Secundaria' },
+  { path: '/publicidad', icon: faClock, label: 'USB' },
 
 ];
 

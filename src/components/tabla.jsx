@@ -3,12 +3,14 @@ import React, { useRef } from "react";
 import html2canvas from "html2canvas";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCameraAlt,
   faCameraRetro,
   faCircleInfo,
-  faDownLong,
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+
+import "./tabla.css";
+import usb from "/usb.png";
+import musica from "/musica.png";
 
 function Tabla({ grupos, fecha }) {
   const opciones = {
@@ -18,15 +20,15 @@ function Tabla({ grupos, fecha }) {
     day: "numeric",
   };
   const coloresFila = [
-  "#F7A8FF", // Rosa/Magenta claro
-  "#9CC9FF", // Azul claro
-  "#B9F7A3", // Verde claro
-  "#FFF9A8", // Amarillo claro
-  "#E6E6E6", // Gris claro
-  "#B9F7A3", // Verde claro
-  "#FFD89A", // Naranja claro
-  "#FFB3B3", // Rojo claro
-];
+    "#F7A8FF", // Rosa/Magenta claro
+    "#9CC9FF", // Azul claro
+    "#B9F7A3", // Verde claro
+    "#FFF9A8", // Amarillo claro
+    "#E6E6E6", // Gris claro
+    "#B9F7A3", // Verde claro
+    "#FFD89A", // Naranja claro
+    "#FFB3B3", // Rojo claro
+  ];
   const rutas = [
     "Sosa Escuela",
     "Calicapan",
@@ -41,240 +43,89 @@ function Tabla({ grupos, fecha }) {
   const sanMiguelRef = useRef(null);
   const tacopanRef = useRef(null);
   const tacopanFrecuenciaRef = useRef(null);
-  const tacopanCerritoRef = useRef(null);
   const tacopan715 = useRef(null);
   const tacopan630 = useRef(null);
   const tacopan645 = useRef(null);
   const tacopan700 = useRef(null);
   const tablaJarocha = useRef(null);
 
-  function capturarTabla() {
-    const tabla = tablaRef.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = fecha.toLocaleDateString("es-MX", opciones);
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
-  function capturarSanMiguel() {
-    const tabla = sanMiguelRef.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = `${fecha.toLocaleDateString(
-        "es-MX",
-        opciones
-      )}, San Miguel`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
+  const capturarTabla = async (ref, nombre = "") => {
+    if (!ref.current) return;
 
-  function capturarTacopan() {
-    const tabla = tacopanRef.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = `${fecha.toLocaleDateString(
-        "es-MX",
-        opciones
-      )}, Tacopan`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
+    const canvas = await html2canvas(ref.current, { scale: 6 });
 
-  function capturarJarocha() {
-    const tabla = tablaJarocha.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = `${fecha.toLocaleDateString(
-        "es-MX",
-        opciones
-      )}, Jarocha`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
+    const enlace = document.createElement("a");
+    enlace.href = canvas.toDataURL("image/png");
 
-  function capturarTacopanFrecuencia() {
-    const tabla = tacopanFrecuenciaRef.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = `${fecha.toLocaleDateString(
-        "es-MX",
-        opciones
-      )}, Frecuencia`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
+    const fechaNombre = fecha.toLocaleDateString("es-MX", opciones);
+    enlace.download = [fechaNombre, nombre].filter(Boolean).join(", ");
 
-  function capturarTacopanCerrito() {
-    const tabla = tacopanCerritoRef.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = `Teziutlan - Tacopan`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
-
-  function capturarTacopan715() {
-    const tabla = tacopan715.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = `${fecha.toLocaleDateString(
-        "es-MX",
-        opciones
-      )}, Tacopan 715`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
-
-  function capturarTacopan630() {
-    const tabla = tacopan630.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = `${fecha.toLocaleDateString(
-        "es-MX",
-        opciones
-      )}, Tacopan 630`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
-
-  function capturarTacopan645() {
-    const tabla = tacopan645.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = `${fecha.toLocaleDateString(
-        "es-MX",
-        opciones
-      )}, Tacopan 645`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
-
-  function capturarTacopan700() {
-    const tabla = tacopan700.current;
-    html2canvas(tabla, { scale: 6 }).then(function (canvas) {
-      const pngUrl = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngUrl;
-      downloadLink.download = `${fecha.toLocaleDateString(
-        "es-MX",
-        opciones
-      )}, Tacopan 700`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  }
+    enlace.click();
+  };
 
   return (
     <div>
       <br></br>
-      <table align="center" ref={tablaRef}>
+      <table className="tabla-rol" align="center" ref={tablaRef}>
         <thead>
           <tr>
-            <th
-              colSpan={4}
-              style={{ backgroundColor: "#B4B4B2", letterSpacing: "2px" }}
-            >
+            <th colSpan={4} className="titulo-fecha">
               {fecha.toLocaleDateString("es-MX", opciones)}
             </th>
           </tr>
         </thead>
+
         <tbody>
-          {grupos.map((grupo, index) => {
-            return (
-              <tr key={index} style={{ backgroundColor: coloresFila[index], fontWeight: 'bold' }}>
-                <td style={{ width: "30%" }}>{rutas[index]}</td>
-                <td colSpan={2}>
-                  {grupo.numeros.filter((n) => n !== 0).join(", ")}
-                </td>
-                <td style={{ width: "23%" }} className="celda-nombre">
-                  {grupo.nombre}
-                </td>
-              </tr>
-            );
-          })}
+          {grupos.map((grupo, index) => (
+            <tr
+              key={index}
+              className="fila-ruta"
+              style={{ backgroundColor: coloresFila[index] }}
+            >
+              <td className="col-ruta">{rutas[index]}</td>
+
+              <td colSpan={2} className="col-unidades">
+                {grupo.numeros.filter((n) => n !== 0).join(", ")}
+              </td>
+
+              <td className="col-operador">{grupo.nombre}</td>
+            </tr>
+          ))}
         </tbody>
+
         <tfoot>
           <tr>
             <td></td>
           </tr>
 
-          <tr>
-            <td
-              style={{ backgroundColor: "#F54A4A" }}
-              colSpan={9}
-              className="celda-icono"
-            >
-              <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>{" "}Precaución
+          <tr className="aviso-rojo">
+            <td colSpan={9} className="titulo-aviso">
+              <FontAwesomeIcon icon={faTriangleExclamation} /> Precaución
             </td>
           </tr>
-          <tr>
-            <td
-              style={{ backgroundColor: "#F54A4A" }}
-              className="celda-tacopan-detalle"
-              colSpan={9}
-            >
+
+          <tr className="detalle-rojo">
+            <td colSpan={9}>
               El operador que se meta a una ruta diferente a la asignada,
-              despues de las 7 de la mañana, sera acredor a un castigo de 5 días
-              sin poder laborar.
+              después de las 7 de la mañana, será acreedor a un castigo de 5
+              días sin poder laborar.
             </td>
           </tr>
-          <tr>
-            <td
-              style={{ backgroundColor: "#00BDFF" }}
-              colSpan={9}
-              className="celda-icono"
-            >
-              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>{" "}Información
+
+          <tr className="aviso-azul">
+            <td colSpan={9} className="titulo-aviso">
+              <FontAwesomeIcon icon={faCircleInfo} /> Información
             </td>
           </tr>
-          <tr>
-            <td
-              style={{ backgroundColor: "#00BDFF" }}
-              className="celda-tacopan-detalle"
-              colSpan={9}
-            >
+
+          <tr className="detalle-azul">
+            <td colSpan={9}>
               Antes de las 7 de la mañana te puedes enrolar en otra ruta que no
-              te corresponda y posteriormente estando en la base de Teziutlan ya
-              te diriges a la ruta que te corresponda.
+              te corresponda y posteriormente, estando en la base de Teziutlán,
+              ya te diriges a la ruta que te corresponda.
             </td>
           </tr>
+
           <tr>
             <td colSpan={9} className="copyright-horarios">
               @el.joyboy.de.chignautla
@@ -283,9 +134,12 @@ function Tabla({ grupos, fecha }) {
         </tfoot>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarTabla} className="boton-capturar">
+        <button
+          onClick={() => capturarTabla(tablaRef)}
+          className="boton-capturar"
+        >
           Capturar Rol
-          <FontAwesomeIcon icon={faCameraRetro}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faCameraRetro} />
         </button>
       </div>
 
@@ -473,9 +327,12 @@ function Tabla({ grupos, fecha }) {
         </tfoot>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarSanMiguel} className="boton-capturar">
+        <button
+          onClick={() => capturarTabla(sanMiguelRef, "San Miguel")}
+          className="boton-capturar"
+        >
           Capturar San Miguel
-          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faCameraRetro} />
         </button>
       </div>
 
@@ -806,206 +663,12 @@ function Tabla({ grupos, fecha }) {
         </tfoot>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarTacopan} className="boton-capturar">
+        <button
+          onClick={() => capturarTabla(tacopanRef, "Tacopan")}
+          className="boton-capturar"
+        >
           Capturar Tacopan
-          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
-        </button>
-      </div>
-
-      {/******************* * Tabla BASE - TACOPAN ****************************************/}
-      <table align="center" ref={tacopanCerritoRef}>
-        <thead>
-          <tr>
-            <th
-              colSpan={9}
-              style={{ backgroundColor: "#FFFB00", letterSpacing: "2px" }}
-            >
-              Tiempos para la ruta TACOPAN, desde la base despues de la 9 de la
-              mañana.
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {grupos.map((grupo, index) => {
-            if (index === 3) {
-              return (
-                <React.Fragment key={index}>
-                  <tr style={{ backgroundColor: "#7DF4ED" }}>
-                    <td className="celda-tacopan-detalle">Teziutlan</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">9:20</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">9:45</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:10</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:40</td>
-                  </tr>
-                  <tr style={{ backgroundColor: "white" }}>
-                    <td>40 minutos</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                  </tr>
-                  <tr style={{ backgroundColor: "#CDF47D" }}>
-                    <td className="celda-tacopan-detalle">Tacopan</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:00</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:25</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:50</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:20</td>
-                  </tr>
-                  <tr style={{ backgroundColor: "white" }}>
-                    <td>6 minutos</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                  </tr>
-                  <tr style={{ backgroundColor: "#F19136" }}>
-                    <td className="celda-tacopan-detalle">CERRITO</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:06</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:31</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:56</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:26</td>
-                  </tr>
-                  <tr style={{ backgroundColor: "white" }}>
-                    <td>29 minutos</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td>
-                      <FontAwesomeIcon icon={faDownLong}></FontAwesomeIcon>
-                    </td>
-                  </tr>
-                  <tr style={{ backgroundColor: "#7DF4ED" }}>
-                    <td className="celda-tacopan-detalle">Teziutlan</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:35</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">10:55</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:15</td>
-                    <td style={{ backgroundColor: "#000000" }}></td>
-                    <td className="celda-tacopan-detalle">11:35</td>
-                  </tr>
-                </React.Fragment>
-              );
-            }
-          })}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={9}></td>
-          </tr>
-          <tr>
-            <td
-              style={{ backgroundColor: "#00BDFF" }}
-              className="celda-tacopan-detalle"
-              colSpan={9}
-            >
-              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
-              El tiempo que tienes para estar dando vuelta al fondo en TACOPAN,
-              a partir de tu salida de TEZIUTLAN, es de <strong>40</strong>{" "}
-              minutos.
-            </td>
-          </tr>
-          <tr>
-            <td colSpan={9}></td>
-          </tr>
-          <tr>
-            <td
-              style={{ backgroundColor: "#00BDFF" }}
-              className="celda-tacopan-detalle"
-              colSpan={9}
-            >
-              <FontAwesomeIcon icon={faCircleInfo}></FontAwesomeIcon>
-              El tiempo que tienes para llegar a TEZIUTLAN, a partir de tu
-              salida del FONDO DE TACOPAN , es de <strong>35</strong> minutos.
-            </td>
-          </tr>
-          <tr>
-            <td colSpan={9}></td>
-          </tr>
-          <tr>
-            <td
-              style={{ backgroundColor: "#F9EE00" }}
-              className="celda-tacopan-detalle"
-              colSpan={9}
-            >
-              <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
-              El tiempo que tienes para estar en la parada EL CERRITO, a partir
-              de tu salida del fondo de TACOPAN, es de <strong>6</strong>{" "}
-              MINUTOS.
-            </td>
-          </tr>
-          <tr>
-            <td colSpan={9}></td>
-          </tr>
-          <tr>
-            <td
-              style={{ backgroundColor: "#F54A4A" }}
-              className="celda-tacopan-detalle"
-              colSpan={9}
-            >
-              <FontAwesomeIcon icon={faTriangleExclamation}></FontAwesomeIcon>
-              Al compañero que sigas o que te siga lo debes de encontrar en el
-              tramo que comprende desde QUINTA LA PIEDAD a EL PUERTO.
-            </td>
-          </tr>
-          <tr>
-            <td colSpan={9} className="copyright-horarios">
-              @el.joyboy.de.chignautla
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-      <div className="contenedor-boton">
-        <button onClick={capturarTacopanCerrito} className="boton-capturar">
-          Capturar Base-Tacopan
-          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faCameraRetro} />
         </button>
       </div>
 
@@ -1263,9 +926,12 @@ function Tabla({ grupos, fecha }) {
         </tbody>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarTacopanFrecuencia} className="boton-capturar">
+        <button
+          onClick={() => capturarTabla(tacopanFrecuenciaRef, "Frecuencia")}
+          className="boton-capturar"
+        >
           Capturar Frecuencia
-          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faCameraRetro} />
         </button>
       </div>
 
@@ -1517,9 +1183,12 @@ function Tabla({ grupos, fecha }) {
         </tfoot>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarTacopan715} className="boton-capturar">
-          Capturar Tacopan
-          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        <button
+          onClick={() => capturarTabla(tacopan715, "Tacopan 715")}
+          className="boton-capturar"
+        >
+          Capturar Tacopan 715
+          <FontAwesomeIcon icon={faCameraRetro} />
         </button>
       </div>
 
@@ -1771,9 +1440,12 @@ function Tabla({ grupos, fecha }) {
         </tfoot>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarTacopan630} className="boton-capturar">
-          Capturar Tacopan
-          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        <button
+          onClick={() => capturarTabla(tacopan630, "Tacopan 630")}
+          className="boton-capturar"
+        >
+          Capturar Tacopan 630
+          <FontAwesomeIcon icon={faCameraRetro} />
         </button>
       </div>
 
@@ -2025,9 +1697,12 @@ function Tabla({ grupos, fecha }) {
         </tfoot>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarTacopan645} className="boton-capturar">
-          Capturar Tacopan
-          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        <button
+          onClick={() => capturarTabla(tacopan645, "Tacopan 645")}
+          className="boton-capturar"
+        >
+          Capturar Tacopan 645
+          <FontAwesomeIcon icon={faCameraRetro} />
         </button>
       </div>
 
@@ -2279,11 +1954,16 @@ function Tabla({ grupos, fecha }) {
         </tfoot>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarTacopan700} className="boton-capturar">
-          Capturar Tacopan
-          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+        <button
+          onClick={() => capturarTabla(tacopan700, "Tacopan 700")}
+          className="boton-capturar"
+        >
+          Capturar Tacopan 700
+          <FontAwesomeIcon icon={faCameraRetro} />
         </button>
       </div>
+
+      {/* TABLA JAROCHA  TABLA JAROCHA  TABLA JAROCHA  TABLA JAROCHA  TABLA JAROCHA  TABLA JAROCHA */}
 
       <table className="tabla-jarocha" ref={tablaJarocha}>
         <thead>
@@ -2369,11 +2049,107 @@ function Tabla({ grupos, fecha }) {
         </tbody>
       </table>
       <div className="contenedor-boton">
-        <button onClick={capturarJarocha} className="boton-capturar">
+        <button
+          onClick={() => capturarTabla(tablaJarocha, "Jarocha")}
+          className="boton-capturar"
+        >
           Capturar Jarocha
-          <FontAwesomeIcon icon={faCameraAlt}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faCameraRetro} />
         </button>
       </div>
+
+
+
+      <div className="banner-usb">
+
+      <div className="banner-header">
+        <div className="titulo">
+          MEMORIAS USB
+        </div>
+
+        <div className="subtitulo">
+          LOS MEJORES ÉXITOS 2026
+        </div>
+      </div>
+
+      <div className="banner-body">
+
+        <div className="col-imagen">
+
+          <img
+            src={usb}
+            className="imagen-usb"
+            alt=""
+          />
+
+          <img
+            src={musica}
+            className="imagen-musica"
+            alt=""
+          />
+
+        </div>
+
+        <div className="col-centro">
+
+          <div className="titulo-lista">
+            Incluye música de:
+          </div>
+
+          <ul>
+
+            <li>✓ Corridos 2026</li>
+
+            <li>✓ Banda</li>
+
+            <li>✓ Cumbias</li>
+
+            <li>✓ Pop Español</li>
+
+            <li>✓ Rock en Español</li>
+
+            <li>✓ Norteñas</li>
+
+            <li>✓ Baladas</li>
+
+            <li>✓ Miles de canciones</li>
+
+          </ul>
+
+        </div>
+
+        <div className="col-derecha">
+
+          <div className="precio">
+
+            $150
+
+          </div>
+
+          <div className="precio-texto">
+
+            PESOS
+
+          </div>
+
+          <div className="whatsapp">
+
+            📱 231 123 4567
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className="banner-footer">
+
+        Compatible con Auto • PC • Pantallas • Estéreos • Android
+
+      </div>
+
+    </div>
+
     </div>
   );
 }

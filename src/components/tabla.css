@@ -1,0 +1,274 @@
+.tabla-rol {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.tabla-rol th,
+.tabla-rol td {
+  border: 1px solid #000;
+  padding: 4px 6px;
+}
+
+.titulo-fecha {
+  background: #b4b4b2;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.fila-ruta {
+  font-weight: bold;
+}
+
+.col-ruta {
+  width: 30%;
+  text-align: center;
+}
+
+.col-unidades {
+  text-align: center;
+}
+
+.col-operador {
+  width: 23%;
+  text-align: center;
+}
+
+.aviso-rojo {
+  background: #f54a4a;
+  color: #fff;
+}
+
+.detalle-rojo {
+  background: #f54a4a;
+}
+
+.aviso-azul {
+  background: #00bdff;
+  color: #fff;
+}
+
+.detalle-azul {
+  background: #00bdff;
+}
+
+.titulo-aviso {
+  text-align: center;
+  font-weight: bold;
+}
+
+.detalle-rojo td,
+.detalle-azul td {
+  text-align: justify;
+}
+
+.copyright-horarios {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+
+
+
+
+
+
+.banner-usb{
+
+    width:900px;
+
+    background:white;
+
+    border:3px solid #111;
+
+    font-family:Arial;
+
+}
+
+.banner-header{
+
+    background:#1d1d1d;
+
+    color:white;
+
+    padding:12px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.titulo{
+
+    font-size:45px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+}
+
+.subtitulo{
+
+    color:#FFD400;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+}
+
+.banner-body{
+
+    display:grid;
+
+    grid-template-columns:220px 1fr 200px;
+
+}
+
+.col-imagen{
+
+    padding:10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.imagen-usb{
+
+    width:160px;
+
+}
+
+.imagen-musica{
+
+    width:70px;
+
+    margin-top:10px;
+
+}
+
+.col-centro{
+
+    padding:15px;
+
+}
+
+.titulo-lista{
+
+    background:#17a24d;
+
+    color:white;
+
+    padding:8px;
+
+    font-size:25px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+
+}
+
+.col-centro ul{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.col-centro li{
+
+    padding:5px 0;
+
+    border-bottom:1px solid #ddd;
+
+    font-size:21px;
+
+    font-weight:bold;
+
+}
+
+.col-derecha{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#fafafa;
+
+    border-left:3px solid #ddd;
+
+}
+
+.precio{
+
+    color:#d60000;
+
+    font-size:70px;
+
+    font-weight:bold;
+
+}
+
+.precio-texto{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.whatsapp{
+
+    margin-top:20px;
+
+    background:#16a34a;
+
+    color:white;
+
+    width:170px;
+
+    text-align:center;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+.banner-footer{
+
+    background:#0057B8;
+
+    color:white;
+
+    padding:12px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}

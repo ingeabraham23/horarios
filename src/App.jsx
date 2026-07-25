@@ -4,6 +4,7 @@ import Principal from "./components/Principal";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Secundaria from "./components/Secundaria";
 import Navbar from "./components/Navbar";
+import USBPublicidad from "./components/USBPublicidad";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Principal />} />
               <Route path="/secundaria" element={<Secundaria />} />
+              <Route path="/publicidad" element={<USBPublicidad />} />
             </Routes>
           </div>
       </HashRouter>
