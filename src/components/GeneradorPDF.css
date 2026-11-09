@@ -1,0 +1,387 @@
+
+/* CONTENEDOR GENERAL */
+
+.generador-pdf {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 12px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #263238;
+  overflow-x: hidden;
+}
+
+.pdf-header {
+  text-align: center;
+  margin: 12px 0 20px;
+}
+
+.pdf-header h2 {
+  font-size: 21px;
+  margin: 0 0 6px;
+}
+
+.pdf-header p {
+  color: #777;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* CONFIGURACIÓN */
+
+.pdf-configuracion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #f1f4f7;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.pdf-configuracion label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.pdf-configuracion input[type="number"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #d5dce2;
+  border-radius: 7px;
+  background: white;
+  font-size: 15px;
+}
+
+.pdf-configuracion .pdf-check {
+  flex-direction: row;
+  align-items: center;
+  font-weight: normal;
+}
+
+.pdf-check input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #176b45;
+}
+
+/* TARJETAS DE PÁGINAS */
+
+.pdf-pagina {
+  background: white;
+  border: 1px solid #dce1e5;
+  border-radius: 11px;
+  padding: 13px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 7px #00000008;
+  min-width: 0;
+}
+
+.pdf-pagina-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 17px;
+}
+
+.pdf-pagina-header > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 15px;
+}
+
+.pdf-numero {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #e9f1fa;
+  color: #245b91;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* CAMPOS */
+
+.generador-pdf input:not([type="checkbox"]),
+.generador-pdf textarea,
+.generador-pdf select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d8dee4;
+  border-radius: 7px;
+  background: #fff;
+  padding: 11px;
+  color: #263238;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.generador-pdf input:focus,
+.generador-pdf textarea:focus,
+.generador-pdf select:focus {
+  border-color: #5089bb;
+}
+
+.generador-pdf textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+
+.pdf-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 17px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* IMAGEN */
+
+.pdf-imagen {
+  margin-top: 15px;
+}
+
+.pdf-imagen-seleccionada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #f4f6f8;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 12px 0 18px;
+}
+
+.pdf-imagen-seleccionada img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+/* PÁRRAFOS */
+
+.pdf-parrafos {
+  margin-top: 20px;
+}
+
+.pdf-parrafos h4,
+.pdf-vista-contenedor h4 {
+  font-size: 14px;
+  margin: 0 0 13px;
+}
+
+.pdf-parrafo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 11px;
+  background: #fafbfc;
+  border: 1px solid #e3e7eb;
+  border-radius: 9px;
+  margin-bottom: 12px;
+}
+
+.pdf-parrafo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+/* BOTONES */
+
+.generador-pdf button {
+  border: none;
+  border-radius: 7px;
+  padding: 10px 13px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.generador-pdf button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pdf-eliminar,
+.pdf-parrafo-header button,
+.pdf-imagen-seleccionada button {
+  background: #fce8e8;
+  color: #bd3535;
+}
+
+.pdf-agregar-parrafo {
+  width: 100%;
+  background: #e9f1fa;
+  color: #245b91;
+  padding: 13px !important;
+}
+
+/* VISTA PREVIA */
+
+.pdf-vista-contenedor {
+  margin-top: 22px;
+  padding-top: 17px;
+  border-top: 1px solid #e5e8eb;
+}
+
+.pdf-hoja {
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  margin: 0 auto;
+  padding: var(--margen);
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid #d5d9dd;
+  box-shadow: 0 3px 12px #00000018;
+  overflow: hidden;
+  position: relative;
+  color: #222;
+}
+
+.preview-imagen-completa {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* DISTRIBUCIÓN DE IMAGEN Y TEXTO */
+
+.preview-mixto {
+  display: flex;
+  gap: 5%;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.posicion-arriba,
+.posicion-abajo {
+  flex-direction: column;
+}
+
+.posicion-abajo {
+  flex-direction: column-reverse;
+}
+
+.posicion-izquierda {
+  flex-direction: row;
+}
+
+.posicion-derecha {
+  flex-direction: row-reverse;
+}
+
+.preview-imagen {
+  object-fit: contain;
+  min-width: 0;
+}
+
+.posicion-arriba .preview-imagen,
+.posicion-abajo .preview-imagen {
+  width: 100%;
+  height: 30%;
+  flex-shrink: 0;
+}
+
+.posicion-izquierda .preview-imagen,
+.posicion-derecha .preview-imagen {
+  width: 35%;
+  height: 45%;
+  flex-shrink: 0;
+}
+
+/* TEXTO DE VISTA PREVIA */
+
+.preview-texto {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.preview-parrafo {
+  margin-bottom: 5%;
+}
+
+.preview-parrafo strong {
+  display: block;
+  font-size: clamp(7px, 2.5vw, 12px);
+  margin-bottom: 5px;
+}
+
+.preview-parrafo p {
+  font-size: clamp(6px, 2vw, 10px);
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.pdf-preview-nota {
+  text-align: center;
+  color: #888;
+  font-size: 11px;
+  margin: 12px 0 0;
+}
+
+/* BOTONES FINALES */
+
+.pdf-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 22px 0 30px;
+}
+
+.pdf-agregar-pagina {
+  background: #e8edf2;
+  color: #34495e;
+  padding: 15px !important;
+}
+
+.pdf-descargar {
+  background: #176b45;
+  color: white;
+  padding: 16px !important;
+  font-size: 15px !important;
+}
+
+/* SOLO MÓVILES */
+
+@media (max-width: 480px) {
+  .generador-pdf {
+    padding: 10px;
+  }
+
+  .pdf-pagina {
+    padding: 11px;
+  }
+
+  .pdf-hoja {
+    width: 100%;
+  }
+
+  .generador-pdf button {
+    min-height: 40px;
+  }
+
+  .pdf-acciones {
+    position: relative;
+  }
+}

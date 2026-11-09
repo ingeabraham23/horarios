@@ -20,8 +20,8 @@ function Secundaria() {
       { nombre: "GRUPO 6", numeros: [14, 22, 29, 41, 42, 0] },
       { nombre: "GRUPO 5", numeros: [7, 13, 19, 33, 47, 0] },
       { nombre: "GRUPO 4", numeros: [4, 10, 27, 31, 0] },
-      { nombre: "GRUPO 3", numeros: [11, 28, 38, 39, 40, 3, 0] },
-      { nombre: "GRUPO 2", numeros: [12, 20, 34, 48, 17, 2, 0] },
+      { nombre: "GRUPO 3", numeros: [11, 28, 34, 38, 39, 3, 0] },
+      { nombre: "GRUPO 2", numeros: [12, 20, 40, 48, 17, 2, 0] },
       { nombre: "GRUPO 1", numeros: [1, 9, 25, 36, 46, 30, 0] },
       { nombre: "GRUPO 8", numeros: [16, 21, 24, 35, 43, 0] },
     ]); // Estado para los grupos de Unidades

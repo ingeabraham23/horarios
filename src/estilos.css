@@ -186,8 +186,6 @@ input[type="text"]:focus {
   border-radius: 5px; /* Agrega bordes redondeados */
   cursor: pointer; /* Cambia el cursor al pasar por encima */
   transition: background-color 0.3s ease; /* Agrega una transición */
-  margin-top: 10px;
-  margin-bottom: 10px;
   font-size: 20px;
 }
 

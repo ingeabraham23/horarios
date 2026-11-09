@@ -6,11 +6,13 @@ import {
   faCameraRetro,
   faCircleInfo,
   faTriangleExclamation,
+  faFilePdf,
 } from "@fortawesome/free-solid-svg-icons";
 
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+
 import "./tabla.css";
-import usb from "/usb.png";
-import musica from "/musica.png";
 
 function Tabla({ grupos, fecha }) {
   const opciones = {
@@ -42,6 +44,7 @@ function Tabla({ grupos, fecha }) {
   const tablaRef = useRef(null);
   const sanMiguelRef = useRef(null);
   const tacopanRef = useRef(null);
+  const tacopan14Ref = useRef(null);
   const tacopanFrecuenciaRef = useRef(null);
   const tacopan715 = useRef(null);
   const tacopan630 = useRef(null);
@@ -63,9 +66,403 @@ function Tabla({ grupos, fecha }) {
     enlace.click();
   };
 
+  const horariosTacopan = [
+    {
+      punto: "Tacopan",
+      tipo: "tacopan",
+      intervalo: "Salida",
+      horarios: [
+        { hora: "6:20", detalle: "" },
+        { hora: "6:34", detalle: "" },
+        { hora: "6:48", detalle: "" },
+        { hora: "7:02", detalle: "" },
+        { hora: "7:16", detalle: "" },
+      ],
+    },
+    {
+      punto: "El Cerrito",
+      tipo: "cerrito",
+      intervalo: "6 min",
+      horarios: [
+        { hora: "6:26", detalle: "" },
+        { hora: "6:40", detalle: "" },
+        { hora: "6:54", detalle: "" },
+        { hora: "7:08", detalle: "" },
+        { hora: "7:22", detalle: "" },
+      ],
+    },
+    {
+      punto: "Teziutlán",
+      tipo: "teziutlan",
+      intervalo: "29 min",
+      horarios: [
+        { hora: "6:55", detalle: "" },
+        { hora: "7:09", detalle: "Libramiento" },
+        { hora: "7:23", detalle: "Libramiento" },
+        { hora: "7:37", detalle: "Libramiento" },
+        { hora: "7:51", detalle: "Libramiento" },
+      ],
+    },
+    {
+      punto: "Tacopan",
+      tipo: "tacopan",
+      intervalo: "35 min",
+      horarios: [
+        { hora: "7:30", detalle: "" },
+        { hora: "7:44", detalle: "" },
+        { hora: "7:58", detalle: "" },
+        { hora: "8:12", detalle: "" },
+        { hora: "8:26", detalle: "" },
+      ],
+    },
+    {
+      punto: "El Cerrito",
+      tipo: "cerrito",
+      intervalo: "6 min",
+      horarios: [
+        { hora: "7:36", detalle: "" },
+        { hora: "7:50", detalle: "" },
+        { hora: "8:04", detalle: "" },
+        { hora: "8:18", detalle: "" },
+        { hora: "8:32", detalle: "" },
+      ],
+    },
+    {
+      punto: "Teziutlán",
+      tipo: "teziutlan",
+      intervalo: "29 min",
+      horarios: [
+        { hora: "8:05", detalle: "" },
+        { hora: "8:19", detalle: "" },
+        { hora: "8:33", detalle: "" },
+        { hora: "8:47", detalle: "" },
+        { hora: "9:01", detalle: "" },
+      ],
+    },
+    {
+      punto: "Tacopan",
+      tipo: "tacopan",
+      intervalo: "35 min",
+      horarios: [
+        { hora: "8:40", detalle: "" },
+        { hora: "8:54", detalle: "" },
+        { hora: "9:08", detalle: "" },
+        { hora: "9:22", detalle: "" },
+        { hora: "9:36", detalle: "" },
+      ],
+    },
+    {
+      punto: "El Cerrito",
+      tipo: "cerrito",
+      intervalo: "6 min",
+      horarios: [
+        { hora: "8:46", detalle: "" },
+        { hora: "9:00", detalle: "" },
+        { hora: "9:14", detalle: "" },
+        { hora: "9:28", detalle: "" },
+        { hora: "9:42", detalle: "" },
+      ],
+    },
+    {
+      punto: "Teziutlán",
+      tipo: "teziutlan",
+      intervalo: "29 min",
+      horarios: [
+        { hora: "9:15", detalle: "" },
+        { hora: "9:29", detalle: "" },
+        { hora: "9:43", detalle: "" },
+        { hora: "9:57", detalle: "" },
+        { hora: "10:11", detalle: "" },
+      ],
+    },
+  ];
+
+  const grupo = grupos[3];
+
+  const descargarPDF = () => {
+    const pdf = new jsPDF({
+      orientation: "landscape",
+      unit: "mm",
+      format: "letter",
+    });
+
+    const fechaTexto = fecha.toLocaleDateString("es-MX", opciones);
+
+    // Encabezado
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(16);
+    pdf.text("ROL TACOPAN", pdf.internal.pageSize.getWidth() / 2, 15, {
+      align: "center",
+    });
+
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(10);
+    pdf.text(`Fecha: ${fechaTexto}`, 14, 23);
+    pdf.text(`Rol: ${grupo.nombre}`, 14, 29);
+
+    // Encabezados de las unidades
+    const encabezados = [
+      "Punto",
+      ...grupo.numeros
+        .slice(0, 5)
+        .map((numero) => (numero === 0 ? "—" : String(numero))),
+    ];
+
+    // Convertir horarios a filas para el PDF
+    const filasPDF = horariosTacopan.map((fila) => [
+      `${fila.punto}\n${fila.intervalo}`,
+      ...fila.horarios.map((horario) => {
+        if (typeof horario === "string") return horario;
+
+        return horario.detalle
+          ? `${horario.hora}\n${horario.detalle}`
+          : horario.hora;
+      }),
+    ]);
+
+    // Filas de descanso
+    filasPDF.push(
+      [
+        {
+          content: "Descanso: se va a Coahuixco",
+          colSpan: 4,
+        },
+        {
+          content: grupo.numeros[5] === 0 ? "—" : String(grupo.numeros[5]),
+          colSpan: 2,
+        },
+      ],
+      [
+        {
+          content: "Descanso: se va a Coahuixco",
+          colSpan: 4,
+        },
+        {
+          content: grupo.numeros[6] === 0 ? "—" : String(grupo.numeros[6]),
+          colSpan: 2,
+        },
+      ],
+    );
+
+    // Tabla en blanco y negro
+    autoTable(pdf, {
+      startY: 34,
+      head: [encabezados],
+      body: filasPDF,
+      theme: "grid",
+
+      styles: {
+        font: "helvetica",
+        fontSize: 9,
+        textColor: [0, 0, 0],
+        fillColor: [255, 255, 255],
+        lineColor: [0, 0, 0],
+        lineWidth: 0.2,
+        halign: "center",
+        valign: "middle",
+        cellPadding: 3,
+      },
+
+      headStyles: {
+        fillColor: [235, 235, 235],
+        textColor: [0, 0, 0],
+        fontStyle: "bold",
+        lineWidth: 0.4,
+      },
+
+      columnStyles: {
+        0: {
+          cellWidth: 45,
+          halign: "left",
+          fontStyle: "bold",
+        },
+      },
+
+      margin: {
+        left: 14,
+        right: 14,
+      },
+    });
+
+    // Aviso al final del documento
+    const posicionFinal = pdf.lastAutoTable.finalY + 8;
+
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(9);
+
+    pdf.text(
+      "IMPORTANTE: El tiempo disponible para estar en la parada El Cerrito,",
+      14,
+      posicionFinal,
+    );
+
+    pdf.text(
+      "a partir de tu salida del fondo de Tacopan, es de 6 minutos.",
+      14,
+      posicionFinal + 5,
+    );
+
+    // Copyright
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(8);
+    pdf.text(
+      "@el.joyboy.de.chignautla",
+      pdf.internal.pageSize.getWidth() / 2,
+      posicionFinal + 12,
+      { align: "center" },
+    );
+
+    // Descargar
+    const fechaArchivo = [
+      fecha.getFullYear(),
+      String(fecha.getMonth() + 1).padStart(2, "0"),
+      String(fecha.getDate()).padStart(2, "0"),
+    ].join("-");
+
+    pdf.save(`Rol-Tacopan-${fechaArchivo}.pdf`);
+  };
+
+  const descargarPDFGlobal = () => {
+  const pdf = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: "letter",
+  });
+
+  const fechaTexto = fecha.toLocaleDateString("es-MX", opciones);
+
+  // TÍTULO Y FECHA
+  pdf.setFont("helvetica", "bold");
+  pdf.setFontSize(14);
+
+  pdf.text("ROL DE RUTAS", 105, 15, {
+    align: "center",
+  });
+
+  pdf.setFontSize(11);
+  pdf.text(fechaTexto, 105, 22, {
+    align: "center",
+  });
+
+  // TABLA DE RUTAS
+  const filas = grupos.map((grupo, index) => [
+    rutas[index] || "",
+    grupo.numeros.filter((n) => n !== 0).join(", "),
+    grupo.nombre || "",
+  ]);
+
+  autoTable(pdf, {
+    startY: 28,
+
+    head: [["Ruta", "Unidades", "Operador"]],
+    body: filas,
+
+    theme: "grid",
+
+    styles: {
+      font: "helvetica",
+      fontSize: 9,
+      textColor: [0, 0, 0],
+      lineColor: [0, 0, 0],
+      lineWidth: 0.2,
+      cellPadding: 2.5,
+      valign: "middle",
+    },
+
+    headStyles: {
+      fillColor: [255, 255, 255],
+      textColor: [0, 0, 0],
+      fontStyle: "bold",
+      halign: "center",
+    },
+
+    columnStyles: {
+      0: { cellWidth: 30, halign: "center" },
+      1: { cellWidth: 85, halign: "center" },
+      2: { cellWidth: 65, halign: "center" },
+    },
+
+    margin: {
+      left: 15,
+      right: 15,
+    },
+  });
+
+  // AVISOS
+  let posicionY = pdf.lastAutoTable.finalY + 8;
+
+  autoTable(pdf, {
+    startY: posicionY,
+
+    body: [
+      [
+        {
+          content: "PRECAUCIÓN",
+          styles: {
+            fontStyle: "bold",
+            halign: "center",
+          },
+        },
+      ],
+      [
+        "El operador que se meta a una ruta diferente a la asignada, después de las 7 de la mañana, será acreedor a un castigo de 5 días sin poder laborar.",
+      ],
+      [
+        {
+          content: "INFORMACIÓN",
+          styles: {
+            fontStyle: "bold",
+            halign: "center",
+          },
+        },
+      ],
+      [
+        "Antes de las 7 de la mañana te puedes enrolar en otra ruta que no te corresponda y posteriormente, estando en la base de Teziutlán, ya te diriges a la ruta que te corresponda.",
+      ],
+    ],
+
+    theme: "grid",
+
+    styles: {
+      font: "helvetica",
+      fontSize: 9,
+      textColor: [0, 0, 0],
+      lineColor: [0, 0, 0],
+      lineWidth: 0.2,
+      cellPadding: 3,
+      valign: "middle",
+      halign: "justify",
+    },
+
+    margin: {
+      left: 15,
+      right: 15,
+    },
+
+    pageBreak: "avoid",
+  });
+
+  // COPYRIGHT
+  const altoPagina = pdf.internal.pageSize.getHeight();
+
+  pdf.setFont("helvetica", "bold");
+  pdf.setFontSize(9);
+
+  pdf.text(
+    "@el.joyboy.de.chignautla",
+    105,
+    altoPagina - 12,
+    { align: "center" }
+  );
+
+  // DESCARGAR
+  pdf.save(`Rol_de_rutas_${fechaTexto.replace(/\//g, "-")}.pdf`);
+};
+
   return (
     <div>
       <br></br>
+      {/* TABLA GLOBAL ** TABLA GLOBAL ** TABLA GLOBAL ** TABLA GLOBAL */}
       <table className="tabla-rol" align="center" ref={tablaRef}>
         <thead>
           <tr>
@@ -83,11 +480,9 @@ function Tabla({ grupos, fecha }) {
               style={{ backgroundColor: coloresFila[index] }}
             >
               <td className="col-ruta">{rutas[index]}</td>
-
               <td colSpan={2} className="col-unidades">
                 {grupo.numeros.filter((n) => n !== 0).join(", ")}
               </td>
-
               <td className="col-operador">{grupo.nombre}</td>
             </tr>
           ))}
@@ -99,13 +494,13 @@ function Tabla({ grupos, fecha }) {
           </tr>
 
           <tr className="aviso-rojo">
-            <td colSpan={9} className="titulo-aviso">
+            <td colSpan={4} className="titulo-aviso">
               <FontAwesomeIcon icon={faTriangleExclamation} /> Precaución
             </td>
           </tr>
 
           <tr className="detalle-rojo">
-            <td colSpan={9}>
+            <td colSpan={4}>
               El operador que se meta a una ruta diferente a la asignada,
               después de las 7 de la mañana, será acreedor a un castigo de 5
               días sin poder laborar.
@@ -113,13 +508,13 @@ function Tabla({ grupos, fecha }) {
           </tr>
 
           <tr className="aviso-azul">
-            <td colSpan={9} className="titulo-aviso">
+            <td colSpan={4} className="titulo-aviso">
               <FontAwesomeIcon icon={faCircleInfo} /> Información
             </td>
           </tr>
 
           <tr className="detalle-azul">
-            <td colSpan={9}>
+            <td colSpan={4}>
               Antes de las 7 de la mañana te puedes enrolar en otra ruta que no
               te corresponda y posteriormente, estando en la base de Teziutlán,
               ya te diriges a la ruta que te corresponda.
@@ -127,12 +522,13 @@ function Tabla({ grupos, fecha }) {
           </tr>
 
           <tr>
-            <td colSpan={9} className="copyright-horarios">
+            <td colSpan={4} className="copyright-horarios">
               @el.joyboy.de.chignautla
             </td>
           </tr>
         </tfoot>
       </table>
+
       <div className="contenedor-boton">
         <button
           onClick={() => capturarTabla(tablaRef)}
@@ -141,7 +537,16 @@ function Tabla({ grupos, fecha }) {
           Capturar Rol
           <FontAwesomeIcon icon={faCameraRetro} />
         </button>
+
+        <button onClick={descargarPDFGlobal} className="boton-pdf">
+  <FontAwesomeIcon icon={faFilePdf} />
+  Descargar PDF
+</button>
       </div>
+
+      
+
+
 
       {/************************** Tabla San Miguel**************************************/}
       <table align="center" ref={sanMiguelRef}>
@@ -2058,98 +2463,119 @@ function Tabla({ grupos, fecha }) {
         </button>
       </div>
 
+      {/******************* * TACOPAN NUEVO NOVIEMBRE 2026*****************************************/}
+      <table ref={tacopan14Ref} className="tabla-tacopan">
+        <thead>
+          <tr>
+            <th colSpan={6} className="tacopan-fecha">
+              {fecha.toLocaleDateString("es-MX", opciones)}
+            </th>
+          </tr>
 
+          <tr>
+            <th colSpan={6} className="tacopan-titulo">
+              Rol Tacopan: {grupo.nombre}
+            </th>
+          </tr>
 
-      <div className="banner-usb">
+          <tr className="tacopan-encabezado-unidades">
+            <th className="tacopan-columna-punto">Unidad</th>
 
-      <div className="banner-header">
-        <div className="titulo">
-          MEMORIAS USB
-        </div>
+            {grupo.numeros.slice(0, 5).map((numero, index) => (
+              <th key={index}>
+                <span className="tacopan-numero-unidad">
+                  {numero === 0 ? "—" : numero}
+                </span>
+              </th>
+            ))}
+          </tr>
+        </thead>
 
-        <div className="subtitulo">
-          LOS MEJORES ÉXITOS 2026
-        </div>
+        <tbody>
+          {horariosTacopan.map((fila, index) => (
+            <tr
+              key={`${fila.punto}-${index}`}
+              className={`tacopan-fila-${fila.tipo}`}
+            >
+              <td className="tacopan-punto">
+                <span className="tacopan-nombre-punto">{fila.punto}</span>
+
+                <span className="tacopan-intervalo">{fila.intervalo}</span>
+              </td>
+
+              {fila.horarios.map((horario, horaIndex) => (
+                <td key={horaIndex} className="tacopan-hora">
+                  <span className="tacopan-hora-principal">{horario.hora}</span>
+
+                  {horario.detalle && (
+                    <span className="tacopan-hora-detalle">
+                      {horario.detalle}
+                    </span>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+
+          <tr className="tacopan-descanso">
+            <td colSpan={4}>
+              <span className="tacopan-descanso-titulo">Descanso</span>
+              <span className="tacopan-descanso-texto">Se va a Coahuixco</span>
+            </td>
+
+            <td colSpan={2} className="tacopan-unidad-descanso">
+              {grupo.numeros[5] === 0 ? "—" : grupo.numeros[5]}
+            </td>
+          </tr>
+
+          <tr className="tacopan-descanso">
+            <td colSpan={4}>
+              <span className="tacopan-descanso-titulo">Descanso</span>
+              <span className="tacopan-descanso-texto">Se va a Coahuixco</span>
+            </td>
+
+            <td colSpan={2} className="tacopan-unidad-descanso">
+              {grupo.numeros[6] === 0 ? "—" : grupo.numeros[6]}
+            </td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colSpan={6} className="tacopan-aviso">
+              <strong>Importante:</strong> El tiempo disponible para estar en la
+              parada El Cerrito, a partir de tu salida del fondo de Tacopan, es
+              de <strong>6 minutos.</strong>
+            </td>
+          </tr>
+
+          <tr>
+            <td colSpan={6} className="tacopan-copyright">
+              @el.joyboy.de.chignautla
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <div className="tacopan-boton-contenedor">
+        <button
+          type="button"
+          onClick={() => capturarTabla(tacopan14Ref, "Tacopan")}
+          className="tacopan-boton-capturar"
+        >
+          Capturar Tacopan
+          <FontAwesomeIcon icon={faCameraRetro} />
+        </button>
+
+        <button
+          type="button"
+          onClick={descargarPDF}
+          className="tacopan-boton-pdf"
+        >
+          Descargar PDF
+          <span>PDF</span>
+        </button>
       </div>
-
-      <div className="banner-body">
-
-        <div className="col-imagen">
-
-          <img
-            src={usb}
-            className="imagen-usb"
-            alt=""
-          />
-
-          <img
-            src={musica}
-            className="imagen-musica"
-            alt=""
-          />
-
-        </div>
-
-        <div className="col-centro">
-
-          <div className="titulo-lista">
-            Incluye música de:
-          </div>
-
-          <ul>
-
-            <li>✓ Corridos 2026</li>
-
-            <li>✓ Banda</li>
-
-            <li>✓ Cumbias</li>
-
-            <li>✓ Pop Español</li>
-
-            <li>✓ Rock en Español</li>
-
-            <li>✓ Norteñas</li>
-
-            <li>✓ Baladas</li>
-
-            <li>✓ Miles de canciones</li>
-
-          </ul>
-
-        </div>
-
-        <div className="col-derecha">
-
-          <div className="precio">
-
-            $150
-
-          </div>
-
-          <div className="precio-texto">
-
-            PESOS
-
-          </div>
-
-          <div className="whatsapp">
-
-            📱 231 123 4567
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div className="banner-footer">
-
-        Compatible con Auto • PC • Pantallas • Estéreos • Android
-
-      </div>
-
-    </div>
-
     </div>
   );
 }

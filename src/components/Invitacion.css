@@ -1,0 +1,888 @@
+/* ========================================
+   BOTÓN
+======================================== */
+
+/* ========================================
+   CÓDIGO DE ACCESO
+======================================== */
+
+.codigo-acceso {
+  margin-top: 10px;
+
+  padding: 10px 12px;
+
+  text-align: center;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff7e8,
+      #fffdf8
+    );
+
+  border: 1px dashed #d7a64a;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+
+/* TÍTULO */
+
+.codigo-titulo {
+  font-family: Georgia, serif;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  color: #72505b;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+
+/* DESCRIPCIÓN */
+
+.codigo-descripcion {
+  margin-top: 2px;
+
+  font-size: 9px;
+
+  color: #927b80;
+}
+
+
+/* CÓDIGO */
+
+.codigo-valor {
+  display: inline-block;
+
+  margin-top: 6px;
+
+  padding: 5px 14px;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  border: 1px solid #dfbf78;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  color: #236080;
+
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+
+/* BOTÓN */
+
+.boton-generar-codigo {
+  display: block;
+
+  margin: 7px auto 0;
+
+  padding: 5px 13px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background: #b83b72;
+
+  color: white;
+
+  font-size: 9px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.boton-generar-codigo:active {
+  transform: scale(0.96);
+}
+
+/* ========================================
+   FOTOS DE LAS HIJAS
+======================================== */
+
+.fotos-hijas {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 14px;
+}
+
+
+/* ========================================
+   PERFIL INDIVIDUAL
+======================================== */
+
+.perfil-hija {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* ========================================
+   MARCO CIRCULAR
+======================================== */
+
+.marco-perfil {
+  width: 105px;
+  height: 105px;
+
+  padding: 4px;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  border: 3px solid #d7a64a;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+
+/* ========================================
+   FOTOGRAFÍA
+======================================== */
+
+.foto-perfil {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius: 50%;
+}
+
+
+/* ========================================
+   NOMBRE DE CADA NIÑA
+======================================== */
+
+.nombre-perfil {
+  margin-top: 5px;
+
+  font-family: Georgia, serif;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  font-style: italic;
+
+  color: #b83b72;
+}
+
+
+/* ========================================
+   CORAZÓN CENTRAL
+======================================== */
+
+.corazon-central {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  color: #d5a13d;
+
+  font-size: 17px;
+
+  margin-top: -20px;
+}
+
+.contenedor-boton-invitacion {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 15px;
+}
+
+.boton-descargar-invitacion {
+  border: none;
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #b83b72;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.boton-descargar-invitacion:active {
+  transform: scale(0.97);
+}
+
+
+/* ========================================
+   INVITACIÓN
+======================================== */
+
+.invitacion {
+  width: 98%;
+  max-width: 430px;
+  margin: 0 auto 30px;
+
+  box-sizing: border-box;
+
+  padding: 5px 7px 5px;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(232, 181, 113, 0.16),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(184, 59, 114, 0.10),
+      transparent 25%
+    ),
+    #fffaf7;
+
+
+  position: relative;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15);
+
+  font-family:
+    "Trebuchet MS",
+    Arial,
+    sans-serif;
+
+  color: #493238;
+}
+
+
+/* ========================================
+   DECORACIÓN
+======================================== */
+
+.decoracion-superior {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  color: #d6a23d;
+
+  font-size: 18px;
+
+  margin-bottom: 3px;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.invitacion-header {
+  text-align: center;
+}
+
+.icono-religioso {
+  width: 40px;
+  height: 40px;
+
+  margin: 0 auto 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #d9a441;
+
+  color: white;
+
+  font-size: 20px;
+
+  box-shadow:
+    0 3px 8px rgba(180, 130, 40, 0.3);
+}
+
+.texto-invitacion {
+  font-family: Georgia, serif;
+
+  font-size: 15px;
+
+  color: #8d6470;
+
+  font-style: italic;
+}
+
+.titulo-invitacion {
+  margin-top: 3px;
+
+  font-family: Georgia, serif;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  color: #653a48;
+}
+
+.subtitulo-religioso {
+  margin-top: 7px;
+
+  font-family: Georgia, serif;
+
+  font-size: 15px;
+
+  line-height: 1.05;
+
+  font-weight: bold;
+
+  color: #b83b72;
+}
+
+.subtitulo-religioso span {
+  color: #236080;
+}
+
+.frase-invitacion {
+  margin-top: 7px;
+
+  font-family: Georgia, serif;
+
+  font-size: 14px;
+
+  font-style: italic;
+
+  color: #80636b;
+}
+
+
+/* ========================================
+   FOTO
+======================================== */
+
+.contenedor-foto-hijas {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 13px;
+}
+
+.marco-foto {
+  width: 60px;
+  height: 100px;
+
+  padding: 3px;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.16);
+
+  border: 2px solid #dfb75f;
+}
+
+.foto-hijas {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius: 7px;
+}
+
+.adorno-foto {
+  font-size: 25px;
+
+  color: #d6a23d;
+
+  opacity: 0.85;
+}
+
+
+/* ========================================
+   NOMBRES
+======================================== */
+
+.nombres-hijas {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 9px;
+
+  font-family: Georgia, serif;
+
+  font-size: 15px;
+
+  font-style: italic;
+
+  font-weight: bold;
+
+  color: #b83b72;
+}
+
+.nombres-hijas strong {
+  font-size: 19px;
+
+  color: #d5a13d;
+}
+
+
+/* ========================================
+   MENSAJE
+======================================== */
+
+.mensaje-principal {
+  text-align: center;
+
+  margin: 8px 0 10px;
+}
+
+.mensaje-principal svg {
+  color: #d5a13d;
+
+  font-size: 13px;
+}
+
+.mensaje-principal p {
+  margin: 3px 0 0;
+
+  font-family: Georgia, serif;
+
+  font-size: 13px;
+
+  line-height: 1.35;
+
+  color: #70565d;
+}
+
+
+/* ========================================
+   INFORMACIÓN
+======================================== */
+
+.informacion-evento {
+  display: flex;
+
+  gap: 8px;
+
+  width: 100%;
+
+  margin-top: 8px;
+}
+
+.dato-evento {
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 7px;
+
+  border-radius: 14px;
+
+  background: white;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08);
+
+  border: 1px solid rgba(200, 160, 80, 0.18);
+}
+
+.icono-dato {
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #b83b72;
+
+  color: white;
+
+  font-size: 15px;
+}
+
+.icono-dato.azul {
+  background: #236080;
+}
+
+.texto-dato {
+  display: flex;
+
+  flex-direction: column;
+
+  text-align: center;
+
+  flex: 1;
+
+  line-height: 1.05;
+}
+
+.etiqueta-dato {
+  font-size: 8px;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  color: #8b6c74;
+}
+
+.texto-dato strong {
+  font-family: Georgia, serif;
+
+  font-size: 27px;
+
+  line-height: 0.95;
+
+  color: #b83b72;
+}
+
+.texto-dato .hora {
+  font-size: 19px;
+
+  color: #236080;
+
+  margin-top: 3px;
+}
+
+.texto-dato span {
+  font-size: 8px;
+
+  font-weight: bold;
+
+  color: #755d63;
+}
+
+.texto-dato small {
+  font-size: 7px;
+
+  color: #8e777d;
+
+  margin-top: 3px;
+}
+
+
+/* ========================================
+   COMIDA
+======================================== */
+
+.comida {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 9px;
+
+  padding: 8px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff3df,
+      #fffaf1,
+      #fff3df
+    );
+
+  border: 1px solid #efd49b;
+}
+
+.icono-comida {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #d49a32;
+
+  color: white;
+
+  font-size: 15px;
+}
+
+.comida div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.comida span {
+  font-size: 9px;
+
+  color: #816b57;
+}
+
+.comida strong {
+  font-family: Georgia, serif;
+
+  font-size: 18px;
+
+  color: #a65327;
+}
+
+
+/* ========================================
+   LUGAR
+======================================== */
+
+.lugar {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 9px;
+
+  padding: 9px 11px;
+
+  border-radius: 14px;
+
+  background: #edf5f3;
+
+  border: 1px solid #c8ddd8;
+}
+
+.icono-lugar {
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #347d6d;
+
+  color: white;
+
+  font-size: 15px;
+}
+
+.texto-lugar {
+  display: flex;
+
+  flex-direction: column;
+
+  text-align: center;
+
+  flex: 1;
+}
+
+.texto-lugar span {
+  font-size: 8px;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  color: #62877f;
+}
+
+.texto-lugar strong {
+  font-size: 13px;
+
+  color: #355d56;
+}
+
+.texto-lugar p {
+  margin: 2px 0 0;
+
+  font-size: 10px;
+
+  color: #54716c;
+}
+
+
+/* ========================================
+   DESPEDIDA
+======================================== */
+
+.despedida {
+  text-align: center;
+
+  margin-top: 10px;
+}
+
+.linea-decorativa {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  color: #d4a23d;
+
+  font-size: 9px;
+}
+
+.linea-decorativa i {
+  display: block;
+
+  width: 55px;
+
+  height: 1px;
+
+  background: #d9b66c;
+}
+
+.despedida p {
+  margin: 6px 0 5px;
+
+  font-family: Georgia, serif;
+
+  font-size: 11px;
+
+  line-height: 1.3;
+
+  font-style: italic;
+
+  color: #765b63;
+}
+
+.icono-final {
+  color: #d5a13d;
+
+  font-size: 15px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.invitacion-footer {
+  margin-top: 6px;
+
+  text-align: center;
+
+  font-family: Georgia, serif;
+
+  font-size: 10px;
+
+  font-style: italic;
+
+  color: #9a737f;
+}
+
+
+/* ========================================
+   AJUSTES PARA TELÉFONOS PEQUEÑOS
+======================================== */
+
+@media (max-width: 380px) {
+
+  .invitacion {
+    padding: 16px 12px 12px;
+  }
+
+  .subtitulo-religioso {
+    font-size: 22px;
+  }
+
+  .foto-hijas {
+    height: 175px;
+  }
+
+  .nombres-hijas {
+    font-size: 18px;
+  }
+
+  .dato-evento {
+    padding: 7px 4px;
+  }
+
+  .icono-dato {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+  }
+
+  .texto-dato strong {
+    font-size: 23px;
+  }
+
+  .texto-dato .hora {
+    font-size: 17px;
+  }
+}

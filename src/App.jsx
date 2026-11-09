@@ -5,6 +5,8 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Secundaria from "./components/Secundaria";
 import Navbar from "./components/Navbar";
 import USBPublicidad from "./components/USBPublicidad";
+import Invitacion from "./components/Invitacion";
+import GeneradorPDF from "./components/GeneradorPDF";
 
 function App() {
     return (
@@ -15,6 +17,8 @@ function App() {
               <Route path="/" element={<Principal />} />
               <Route path="/secundaria" element={<Secundaria />} />
               <Route path="/publicidad" element={<USBPublicidad />} />
+              <Route path="/invitacion" element={<Invitacion />} />
+              <Route path="/pdf" element={<GeneradorPDF />} />
             </Routes>
           </div>
       </HashRouter>

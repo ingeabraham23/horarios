@@ -1,274 +1,548 @@
+
+/* CONTENEDOR PRINCIPAL DE LA TABLA */
 .tabla-rol {
-  border-collapse: collapse;
-  margin: auto;
+  width: 94%;
+  max-width: 480px;
+  margin: 15px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  color: #243447;
 }
 
-.tabla-rol th,
-.tabla-rol td {
-  border: 1px solid #000;
-  padding: 4px 6px;
-}
-
-.titulo-fecha {
-  background: #b4b4b2;
-  letter-spacing: 2px;
-  font-weight: bold;
-}
-
-.fila-ruta {
-  font-weight: bold;
-}
-
-.col-ruta {
-  width: 30%;
+/* ENCABEZADO CON FECHA */
+.tabla-rol .titulo-fecha {
+  background: #243c5a;
+  color: #ffffff;
+  font-size: clamp(15px, 4vw, 19px);
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 13px 8px;
   text-align: center;
+  border-bottom: 3px solid #e0a83e;
 }
 
-.col-unidades {
-  text-align: center;
+/* FILAS DE LAS RUTAS */
+.tabla-rol .fila-ruta {
+  height: auto;
 }
 
-.col-operador {
+/* CELDA DE RUTA */
+.tabla-rol .col-ruta {
   width: 23%;
+  padding: 9px 5px;
   text-align: center;
+  font-size: clamp(12px, 3.2vw, 15px);
+  font-weight: 800;
+  color: #243447;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  overflow-wrap: anywhere;
 }
 
-.aviso-rojo {
-  background: #f54a4a;
-  color: #fff;
-}
-
-.detalle-rojo {
-  background: #f54a4a;
-}
-
-.aviso-azul {
-  background: #00bdff;
-  color: #fff;
-}
-
-.detalle-azul {
-  background: #00bdff;
-}
-
-.titulo-aviso {
+/* CELDA DE UNIDADES */
+.tabla-rol .col-unidades {
+  width: 42%;
+  padding: 9px 5px;
   text-align: center;
-  font-weight: bold;
+  font-size: clamp(12px, 3.3vw, 15px);
+  font-weight: 750;
+  color: #243447;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
 
-.detalle-rojo td,
-.detalle-azul td {
-  text-align: justify;
+/* CELDA DEL OPERADOR */
+.tabla-rol .col-operador {
+  width: 35%;
+  padding: 9px 5px;
+  text-align: center;
+  font-size: clamp(11px, 3vw, 14px);
+  font-weight: 650;
+  color: #243447;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
 
-.copyright-horarios {
+/* QUITAR BORDE INFERIOR DE LA ÚLTIMA RUTA */
+.tabla-rol tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ESPACIO ENTRE TABLA Y AVISOS */
+.tabla-rol tfoot tr:first-child td {
+  height: 9px;
+  padding: 0;
+  background: #f1f4f8;
+}
+
+/* TÍTULOS DE LOS AVISOS */
+.tabla-rol .titulo-aviso {
+  padding: 8px 10px;
   text-align: center;
   font-size: 13px;
-  color: #555;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* AVISO ROJO */
+.tabla-rol .aviso-rojo {
+  background: #b83232;
+  color: #ffffff;
+}
+
+.tabla-rol .aviso-rojo .titulo-aviso svg {
+  margin-right: 6px;
+}
+
+/* DETALLE ROJO */
+.tabla-rol .detalle-rojo {
+  background: #fff0ef;
+  color: #792727;
+}
+
+.tabla-rol .detalle-rojo td {
+  padding: 9px 12px;
+  text-align: justify;
+  font-size: 11.5px;
+  font-weight: 550;
+  line-height: 1.4;
+}
+
+/* AVISO AZUL */
+.tabla-rol .aviso-azul {
+  background: #285b91;
+  color: #ffffff;
+}
+
+.tabla-rol .aviso-azul .titulo-aviso svg {
+  margin-right: 6px;
+}
+
+/* DETALLE AZUL */
+.tabla-rol .detalle-azul {
+  background: #edf5ff;
+  color: #244b75;
+}
+
+.tabla-rol .detalle-azul td {
+  padding: 9px 12px;
+  text-align: justify;
+  font-size: 11.5px;
+  font-weight: 550;
+  line-height: 1.4;
+}
+
+/* COPYRIGHT */
+.tabla-rol .copyright-horarios {
+  background: #243c5a;
+  color: #dce6f1;
+  text-align: center;
+  padding: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* CONTENEDOR DEL BOTÓN */
+.contenedor-boton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 20px;
+}
+
+/* BOTÓN CAPTURAR */
+.boton-capturar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 85%;
+  max-width: 350px;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #243c5a, #35618e);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(36, 60, 90, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.boton-capturar svg {
+  font-size: 17px;
+}
+
+.boton-capturar:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(36, 60, 90, 0.2);
+}
+
+/* PANTALLAS MUY PEQUEÑAS */
+@media (max-width: 360px) {
+  .tabla-rol {
+    width: 96%;
+    margin-top: 8px;
+  }
+
+  .tabla-rol .col-ruta,
+  .tabla-rol .col-unidades,
+  .tabla-rol .col-operador {
+    padding: 7px 3px;
+  }
+
+  .tabla-rol .detalle-rojo td,
+  .tabla-rol .detalle-azul td {
+    padding: 7px 9px;
+    font-size: 10.5px;
+  }
+
+  .tabla-rol .titulo-fecha {
+    padding: 10px 6px;
+  }
 }
 
 
 
 
 
-
-
-.banner-usb{
-
-    width:900px;
-
-    background:white;
-
-    border:3px solid #111;
-
-    font-family:Arial;
-
+/*ULTIMA TABLA TACOPAN 5 UNIDADES*/
+/* Contenedor */
+.tacopan-contenedor {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.banner-header{
-
-    background:#1d1d1d;
-
-    color:white;
-
-    padding:12px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
+/* Tabla */
+.tabla-tacopan {
+  width: 100%;
+  height: 80vh;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #263238;
+  font-size: 12px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
 }
 
-.titulo{
-
-    font-size:45px;
-
-    font-weight:bold;
-
-    letter-spacing:2px;
-
+/* Encabezados generales */
+.tabla-tacopan th {
+  padding: 8px 2px;
+  text-align: center;
+  font-weight: 700;
 }
 
-.subtitulo{
-
-    color:#FFD400;
-
-    font-size:30px;
-
-    font-weight:bold;
-
+/* Fecha */
+.tabla-tacopan .tacopan-fecha {
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-.banner-body{
-
-    display:grid;
-
-    grid-template-columns:220px 1fr 200px;
-
+/* Título */
+.tabla-tacopan .tacopan-titulo {
+  background: #fffb00;
+  color: #252525;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  padding: 12px 4px;
 }
 
-.col-imagen{
-
-    padding:10px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
+/* Encabezado de unidades */
+.tabla-tacopan .tacopan-encabezado-unidades th {
+  background: #263238;
+  color: #ffffff;
+  border-bottom: 2px solid #111827;
 }
 
-.imagen-usb{
-
-    width:160px;
-
+.tabla-tacopan .tacopan-columna-punto {
+  width: 29%;
 }
 
-.imagen-musica{
-
-    width:70px;
-
-    margin-top:10px;
-
+.tacopan-numero-unidad {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  min-height: 22px;
+  padding: 2px;
+  border-radius: 6px;
+  background: #98f009;
+  color: #1c2b08;
+  font-size: 12px;
+  font-weight: 800;
 }
 
-.col-centro{
-
-    padding:15px;
-
+/* Celdas */
+.tabla-tacopan td {
+  padding: 6px 2px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(38, 50, 56, 0.1);
 }
 
-.titulo-lista{
-
-    background:#17a24d;
-
-    color:white;
-
-    padding:8px;
-
-    font-size:25px;
-
-    font-weight:bold;
-
-    margin-bottom:10px;
-
+/* Nombre de parada e intervalo */
+.tabla-tacopan .tacopan-punto {
+  padding: 5px 4px;
+  text-align: left;
 }
 
-.col-centro ul{
-
-    list-style:none;
-
-    padding:0;
-
-    margin:0;
-
+.tacopan-nombre-punto {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
 }
 
-.col-centro li{
-
-    padding:5px 0;
-
-    border-bottom:1px solid #ddd;
-
-    font-size:21px;
-
-    font-weight:bold;
-
+.tacopan-intervalo {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.65);
+  color: #374151;
+  font-size: 9px;
+  font-weight: 600;
 }
 
-.col-derecha{
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:#fafafa;
-
-    border-left:3px solid #ddd;
-
+/* Horarios */
+.tabla-tacopan .tacopan-hora {
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-.precio{
-
-    color:#d60000;
-
-    font-size:70px;
-
-    font-weight:bold;
-
+/* Tacopan: verde */
+.tabla-tacopan .tacopan-fila-tacopan {
+  background: #dcefc4;
+  color: #263b16;
 }
 
-.precio-texto{
-
-    font-size:28px;
-
-    font-weight:bold;
-
+/* Cerrito: naranja */
+.tabla-tacopan .tacopan-fila-cerrito {
+  background: #f19136;
+  color: #3b2208;
 }
 
-.whatsapp{
-
-    margin-top:20px;
-
-    background:#16a34a;
-
-    color:white;
-
-    width:170px;
-
-    text-align:center;
-
-    padding:12px;
-
-    border-radius:8px;
-
-    font-size:24px;
-
-    font-weight:bold;
-
+/* Teziutlán: azul */
+.tabla-tacopan .tacopan-fila-teziutlan {
+  background: #29bfe8;
+  color: #07313d;
 }
 
-.banner-footer{
+/* Descansos */
+.tabla-tacopan .tacopan-descanso td {
+  background: #f3f4f6;
+  padding: 7px 5px;
+}
 
-    background:#0057B8;
+.tacopan-descanso-titulo {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+}
 
-    color:white;
+.tacopan-descanso-texto {
+  display: block;
+  margin-top: 2px;
+  color: #6b7280;
+  font-size: 10px;
+}
 
-    padding:12px;
+.tabla-tacopan .tacopan-unidad-descanso {
+  background: #98f009;
+  color: #1c2b08;
+  font-size: 14px;
+  font-weight: 800;
+}
 
-    text-align:center;
+/* Aviso */
+.tabla-tacopan .tacopan-aviso {
+  padding: 9px 7px;
+  background: #f54a4a;
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: left;
+}
 
-    font-size:22px;
+/* Copyright */
+.tabla-tacopan .tacopan-copyright {
+  padding: 6px;
+  background: #ffffff;
+  color: #9ca3af;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
 
-    font-weight:bold;
+/* Botón */
+.tacopan-boton-contenedor {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 12px 0;
+}
 
+.tacopan-boton-capturar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 360px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #263238, #455a64);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.tacopan-boton-capturar:active {
+  transform: scale(0.97);
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .tabla-tacopan {
+    height: 80vh;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+
+  .tabla-tacopan .tacopan-titulo {
+    font-size: 13px;
+    padding: 9px 2px;
+  }
+
+  .tabla-tacopan th {
+    padding: 6px 1px;
+  }
+
+  .tabla-tacopan td {
+    padding: 4px 1px;
+  }
+
+  .tabla-tacopan .tacopan-columna-punto {
+    width: 29%;
+  }
+
+  .tacopan-numero-unidad {
+    min-width: 18px;
+    min-height: 18px;
+    font-size: 10px;
+  }
+
+  .tacopan-nombre-punto {
+    font-size: 10px;
+  }
+
+  .tacopan-intervalo {
+    font-size: 8px;
+    padding: 2px 3px;
+  }
+
+  .tabla-tacopan .tacopan-hora {
+    font-size: 9px;
+  }
+
+  .tabla-tacopan .tacopan-descanso td {
+    padding: 5px 3px;
+  }
+
+  .tabla-tacopan .tacopan-aviso {
+    font-size: 9px;
+  }
+
+  .tacopan-boton-capturar {
+    width: 95%;
+    padding: 11px;
+  }
+
+  
+}
+
+.tacopan-hora-principal {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.tacopan-hora-detalle {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.65);
+  color: #374151;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .tacopan-hora-principal {
+    font-size: 16px;
+  }
+
+  .tacopan-hora-detalle {
+    font-size: 8px;
+    margin-top: 2px;
+  }
+}
+
+.tacopan-boton-pdf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 360px;
+  padding: 12px 16px;
+  border: 1px solid #263238;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #263238;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tacopan-boton-pdf span {
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #263238;
+  color: #ffffff;
+  font-size: 10px;
+}
+
+.tacopan-boton-pdf:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 480px) {
+  .tacopan-boton-pdf {
+    width: 95%;
+    padding: 11px;
+  }
 }

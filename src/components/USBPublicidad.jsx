@@ -5,10 +5,11 @@ import "./USBPublicidad.css";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 import {
-  faCar,
+  faVanShuttle,
+  faBus,
   faTv,
+  faAppleAlt,
   faComputer,
-  faMobileScreen,
   faCompactDisc,
   faFire,
   faBolt,
@@ -17,7 +18,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import usb from "/usb.png";
-import musica from "/musica.png";
+//import musica from "/musica.png";
 
 function USBPublicidad() {
   //==========================
@@ -32,7 +33,7 @@ function USBPublicidad() {
 
   const slogan = "LOS MEJORES ÉXITOS";
 
-  const totalCanciones = "+4,000";
+  const totalCanciones = "+4,500";
 
   const publicidadRef = useRef();
 
@@ -44,7 +45,10 @@ function USBPublicidad() {
     "Rock en Español",
     "Cumbias",
     "Bandas",
+    "Belicos",
     "Sonideras",
+    "Bachatas",
+    "Alternativas",
     "Mucho más...",
   ];
 
@@ -68,7 +72,7 @@ function USBPublicidad() {
 
   return (
     <>
-      <div className="contenedor-boton">
+      <div className="contenedor-boton-usb">
         <button className="boton-descargar" onClick={capturarPublicidad}>
           Descargar publicidad
         </button>
@@ -80,11 +84,11 @@ function USBPublicidad() {
         {/*========================*/}
 
         <div className="usb-header">
-          <div className="nuevo">JULIO 2026</div>
+          {/* <div className="nuevo">AGOSTO 2026</div> */}
 
-          <div className="titulo-principal">MEMORIAS USB</div>
+          <div className="titulo-principal">MEMORIAS USB CON MÚSICA</div>
 
-          <div className="titulo-secundario">CON MÚSICA</div>
+          {/* <div className="titulo-secundario"></div> */}
 
           <div className="slogan">{slogan}</div>
         </div>
@@ -92,7 +96,7 @@ function USBPublicidad() {
         <div className="cinta-oferta">
           <FontAwesomeIcon icon={faFire} />
 
-          <span>¡ACTUALIZADAS 2026!</span>
+          <span>¡ACTUALIZADAS AGOSTO 2026!</span>
 
           <FontAwesomeIcon icon={faFire} />
         </div>
@@ -107,7 +111,7 @@ function USBPublicidad() {
           {/*========================*/}
 
           <div className="zona-imagenes">
-            <img src={usb} className="imagen-usb" alt="" />
+            
 
             <div className="insignia">
               <div className="insignia-numero">{totalCanciones}</div>
@@ -121,7 +125,20 @@ function USBPublicidad() {
               </div>
             </div>
 
-            <img src={musica} className="imagen-musica" alt="" />
+            <img src={usb} className="imagen-usb" alt="" />
+
+            <div className="insignia-azul">
+              <div className="insignia-texto">Solo:</div>
+              <div className="insignia-numero">10,000</div>
+
+              <div className="insignia-extra">
+                Unidades
+                <br />
+                Disponibles
+              </div>
+            </div>
+
+            {/* <img src={musica} className="imagen-musica" alt="" /> */}
           </div>
 
           {/*========================*/}
@@ -153,7 +170,7 @@ function USBPublicidad() {
             <div className="whatsapp-card">
               <div className="whatsapp-titulo">
                 <FontAwesomeIcon icon={faWhatsapp} />
-                &nbsp; PEDIDOS
+                &nbsp; Whatsapp
               </div>
 
               <div className="contacto">{contacto}</div>
@@ -161,7 +178,7 @@ function USBPublicidad() {
               <div className="telefono">{telefono}</div>
 
               <div className="mensaje">
-                Envíame un WhatsApp para hacer tu pedido.
+                Entrega: Viernes o sábado.
               </div>
             </div>
           </div>
@@ -171,9 +188,21 @@ function USBPublicidad() {
 
           <div className="compatibilidad">
             <div className="item">
-              <FontAwesomeIcon icon={faCar} />
+              <FontAwesomeIcon icon={faBus} />
 
-              <span>Auto</span>
+              <span>Sunrise</span>
+            </div>
+
+            <div className="item">
+              <FontAwesomeIcon icon={faVanShuttle} />
+
+              <span>Hiace</span>
+            </div>
+
+            <div className="item">
+              <FontAwesomeIcon icon={faVanShuttle} />
+
+              <span>Urvan</span>
             </div>
 
             <div className="item">
@@ -189,9 +218,9 @@ function USBPublicidad() {
             </div>
 
             <div className="item">
-              <FontAwesomeIcon icon={faMobileScreen} />
+              <FontAwesomeIcon icon={faAppleAlt} />
 
-              <span>Android</span>
+              <span>Mac</span>
             </div>
           </div>
 
