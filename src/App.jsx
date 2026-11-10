@@ -2,7 +2,6 @@
 import React from "react";
 import Principal from "./components/Principal";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Secundaria from "./components/Secundaria";
 import Navbar from "./components/Navbar";
 import USBPublicidad from "./components/USBPublicidad";
 import Invitacion from "./components/Invitacion";
@@ -15,7 +14,6 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Principal />} />
-              <Route path="/secundaria" element={<Secundaria />} />
               <Route path="/publicidad" element={<USBPublicidad />} />
               <Route path="/invitacion" element={<Invitacion />} />
               <Route path="/pdf" element={<GeneradorPDF />} />

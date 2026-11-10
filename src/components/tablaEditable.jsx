@@ -1,73 +1,182 @@
+
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState } from "react";
 
 function EditableTabla({ grupos, onGruposChange }) {
   const [editingIndex, setEditingIndex] = useState(-1);
-  const [editingNumeros, setEditingNumeros] = useState(Array(6).fill(0));
+  const [editingNumeros, setEditingNumeros] = useState([]);
+  const [nuevoNumero, setNuevoNumero] = useState("");
+  const [errorNumero, setErrorNumero] = useState("");
 
-  const handleNumerosChange = (index, value) => {
-    const newNumeros = [...editingNumeros];
-    newNumeros[index] = parseInt(value, 10);
-    setEditingNumeros(newNumeros);
-  };
+  // Determinar la cantidad máxima de columnas
+  const maxNumeros = Math.max(
+    0,
+    ...grupos.map((grupo) => grupo.numeros.length)
+  );
 
-  const handleSave = (index) => {
-    const newGrupos = [...grupos];
-    newGrupos[index] = { numeros: editingNumeros, nombre: grupos[index].nombre };
-    onGruposChange(newGrupos);
-    setEditingIndex(-1);
-    setEditingNumeros(Array(6).fill(0));
-  };
-
+  // Activar edición
   const handleEdit = (index) => {
     setEditingIndex(index);
-    const numeros = grupos[index].numeros;
-    setEditingNumeros([...numeros]);
+    setEditingNumeros([...grupos[index].numeros]);
+    setNuevoNumero("");
+    setErrorNumero("");
   };
 
+  // Modificar un número
+  const handleNumerosChange = (index, value) => {
+    setEditingNumeros((prev) =>
+      prev.map((numero, i) =>
+        i === index ? Number(value) : numero
+      )
+    );
+  };
+
+  // Agregar un número manualmente
+  const handleAgregarNumero = () => {
+    if (nuevoNumero.trim() === "") {
+      setErrorNumero("Escribe un número.");
+      return;
+    }
+
+    const numero = Number(nuevoNumero);
+
+    if (!Number.isFinite(numero) || numero <= 0) {
+      setErrorNumero("Ingresa un número válido.");
+      return;
+    }
+
+    if (editingNumeros.includes(numero)) {
+      setErrorNumero("Ese número ya existe en este grupo.");
+      return;
+    }
+
+    setEditingNumeros((prev) => [...prev, numero]);
+    setNuevoNumero("");
+    setErrorNumero("");
+  };
+
+  // Guardar cambios
+  const handleSave = () => {
+    const nuevosGrupos = grupos.map((grupo, index) =>
+      index === editingIndex
+        ? {
+            ...grupo,
+            numeros: [...editingNumeros],
+          }
+        : grupo
+    );
+
+    onGruposChange(nuevosGrupos);
+    handleCancel();
+  };
+
+  // Cancelar edición
   const handleCancel = () => {
     setEditingIndex(-1);
-    setEditingNumeros(Array(6).fill(0));
+    setEditingNumeros([]);
+    setNuevoNumero("");
+    setErrorNumero("");
   };
 
   return (
     <table>
       <thead>
         <tr>
-          {[1, 2, 3, 4, 5, 6].map((num) => (
-            <th key={num}>{num}</th>
+          {Array.from({ length: maxNumeros }, (_, index) => (
+            <th key={index}>{index + 1}</th>
           ))}
-          <th></th>
+          <th>Acciones</th>
         </tr>
       </thead>
+
       <tbody>
         {grupos.map((grupo, index) => (
-          <tr key={index}>
-            {editingIndex === index ? (
-              editingNumeros.map((numero, i) => (
-                <td key={i}>
-                  <select value={numero} onChange={(e) => handleNumerosChange(i, e.target.value)}>
-                    {grupo.numeros.map((num) => (
-                      <option key={num} value={num}>
-                        {num}
-                      </option>
-                    ))}
-                  </select>
+          <tr key={grupo.nombre}>
+            {Array.from({ length: maxNumeros }, (_, numeroIndex) => {
+              const tieneNumero =
+                numeroIndex < grupo.numeros.length;
+
+              return (
+                <td key={numeroIndex}>
+                  {editingIndex === index && tieneNumero ? (
+                    <select
+                      value={editingNumeros[numeroIndex]}
+                      onChange={(e) =>
+                        handleNumerosChange(
+                          numeroIndex,
+                          e.target.value
+                        )
+                      }
+                    >
+                      {editingNumeros.map((num, i) => (
+                        <option key={i} value={num}>
+                          {num}
+                        </option>
+                      ))}
+                    </select>
+                  ) : tieneNumero ? (
+                    grupo.numeros[numeroIndex]
+                  ) : null}
                 </td>
-              ))
-            ) : (
-              grupo.numeros.map((numero, i) => (
-                <td key={i}>{numero}</td>
-              ))
-            )}
+              );
+            })}
+
             <td>
               {editingIndex === index ? (
-                <>
-                  <button onClick={() => handleSave(index)} className='boton-guardar'>G</button>
-                  <button onClick={handleCancel} className='boton-cancelar'>C</button>
-                </>
+                <div className="acciones-edicion">
+                  <button
+                    type="button"
+                    onClick={handleSave}
+                    className="boton-guardar"
+                  >
+                    G
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleCancel}
+                    className="boton-cancelar"
+                  >
+                    C
+                  </button>
+
+                  <div className="agregar-numero">
+                    <input
+                      type="number"
+                      min="1"
+                      step="any"
+                      value={nuevoNumero}
+                      onChange={(e) => {
+                        setNuevoNumero(e.target.value);
+                        setErrorNumero("");
+                      }}
+                      placeholder="Número"
+                    />
+
+                    <button
+                      type="button"
+                      onClick={handleAgregarNumero}
+                      className="boton-agregar-numero"
+                    >
+                      + Agregar
+                    </button>
+
+                    {errorNumero && (
+                      <small className="error-numero">
+                        {errorNumero}
+                      </small>
+                    )}
+                  </div>
+                </div>
               ) : (
-                <button onClick={() => handleEdit(index)} className='boton-editar'>E</button>
+                <button
+                  type="button"
+                  onClick={() => handleEdit(index)}
+                  className="boton-editar"
+                  disabled={editingIndex !== -1}
+                >
+                  E
+                </button>
               )}
             </td>
           </tr>
