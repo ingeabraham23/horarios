@@ -5,6 +5,7 @@ import { useState } from "react";
 function EditableTabla({ grupos, onGruposChange }) {
   const [editingIndex, setEditingIndex] = useState(-1);
   const [editingNumeros, setEditingNumeros] = useState([]);
+  const [numerosDisponibles, setNumerosDisponibles] = useState([]);
   const [nuevoNumero, setNuevoNumero] = useState("");
   const [errorNumero, setErrorNumero] = useState("");
 
@@ -16,8 +17,11 @@ function EditableTabla({ grupos, onGruposChange }) {
 
   // Activar edición
   const handleEdit = (index) => {
+    const numeros = [...grupos[index].numeros];
+
     setEditingIndex(index);
-    setEditingNumeros([...grupos[index].numeros]);
+    setEditingNumeros(numeros);
+    setNumerosDisponibles(numeros);
     setNuevoNumero("");
     setErrorNumero("");
   };
@@ -45,12 +49,17 @@ function EditableTabla({ grupos, onGruposChange }) {
       return;
     }
 
-    if (editingNumeros.includes(numero)) {
+    if (numerosDisponibles.includes(numero)) {
       setErrorNumero("Ese número ya existe en este grupo.");
       return;
     }
 
+    // Agregar al arreglo de edición
     setEditingNumeros((prev) => [...prev, numero]);
+
+    // Agregar a las opciones de todos los selectores
+    setNumerosDisponibles((prev) => [...prev, numero]);
+
     setNuevoNumero("");
     setErrorNumero("");
   };
@@ -74,6 +83,7 @@ function EditableTabla({ grupos, onGruposChange }) {
   const handleCancel = () => {
     setEditingIndex(-1);
     setEditingNumeros([]);
+    setNumerosDisponibles([]);
     setNuevoNumero("");
     setErrorNumero("");
   };
@@ -108,7 +118,7 @@ function EditableTabla({ grupos, onGruposChange }) {
                         )
                       }
                     >
-                      {editingNumeros.map((num, i) => (
+                      {numerosDisponibles.map((num, i) => (
                         <option key={i} value={num}>
                           {num}
                         </option>
